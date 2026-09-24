@@ -75,6 +75,8 @@ def main():
         raise ValueError("This baseline has no trainable head; evaluate cached base_topology_scores directly")
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_rate, weight_decay=1e-4)
     loss_weights = config.get("loss_weights") or {}
+    if not any(float(weight) > 0 for weight in loss_weights.values()):
+        raise ValueError("config.loss_weights must enable at least one loss")
     hard_negative = config.get("hard_negative") or {}
     overshoot = config.get("overshoot") or {}
     modules = config.get("modules") or {}
@@ -106,15 +108,17 @@ def main():
                 losses["connection"] = connection_consistency_loss(
                     output["refined_lanes"], tensors["query_adjacency"], valid_mask=valid_pairs
                 )
-                losses["overshoot"] = longitudinal_overshoot_loss(
-                    output["refined_end"], tensors["gt_end"], tensors["gt_end_tangent"],
-                    matched_mask=matched, margin_m=float(overshoot.get("margin_m", 0.5)),
-                )
-                losses["transition"] = longitudinal_overshoot_loss(
-                    output["refined_end"], tensors["gt_end"], tensors["gt_end_tangent"],
-                    matched_mask=matched, transition_end_mask=tensors["transition_end_mask"],
-                    margin_m=float(overshoot.get("transition_margin_m", 0.0)),
-                )
+                if float(loss_weights.get("overshoot", 0.0)) > 0:
+                    losses["overshoot"] = longitudinal_overshoot_loss(
+                        output["refined_end"], tensors["gt_end"], tensors["gt_end_tangent"],
+                        matched_mask=matched, margin_m=float(overshoot.get("margin_m", 0.5)),
+                    )
+                if float(loss_weights.get("transition", 0.0)) > 0:
+                    losses["transition"] = longitudinal_overshoot_loss(
+                        output["refined_end"], tensors["gt_end"], tensors["gt_end_tangent"],
+                        matched_mask=matched, transition_end_mask=tensors["transition_end_mask"],
+                        margin_m=float(overshoot.get("transition_margin_m", 0.0)),
+                    )
             if modules.get("hard_negative_ranking", False) and model.topology_head is not None:
                 losses["ranking"] = hard_negative_ranking_loss(
                     output["logits"],
@@ -124,7 +128,9 @@ def main():
                     margin=float(hard_negative.get("margin", 0.2)),
                     negatives_per_source=int(hard_negative.get("negatives_per_source", 8)),
                 )
-            total = sum(float(loss_weights.get(name, 1.0)) * value for name, value in losses.items())
+            total = sum(float(loss_weights.get(name, 0.0)) * value for name, value in losses.items())
+            if not total.requires_grad:
+                raise ValueError("No enabled loss is connected to a trainable head")
             optimizer.zero_grad(set_to_none=True)
             total.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=5.0)

@@ -1,0 +1,22 @@
+experiment: A3_endpoint_overshoot
+seed: 20260905
+features:
+  source: topologic_official_cache
+  freeze_backbone: true
+  freeze_bev_encoder: true
+  freeze_lane_decoder: true
+modules:
+  endpoint_refiner: true
+  hybrid_topology: false
+  hard_negative_ranking: false
+endpoint_refiner:
+  query_dim: 256
+  hidden_dim: 128
+  max_offset_m: 3.0
+  endpoint_span: 4
+loss_weights:
+  endpoint: 1.0
+  connection: 0.25
+  overshoot: 0.5
+overshoot:
+  margin_m: 0.5

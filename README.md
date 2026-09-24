@@ -117,8 +117,8 @@ python tools/train_cached_heads.py \
 ```
 
 `baseline.yaml` is evaluation-only. `endpoint.yaml` trains the endpoint
-refiner with cached base topology scores; `hybrid.yaml` trains the relation
-head; `full.yaml` combines the two. All topology exactness and frame-pass
+refiner; `overshoot.yaml` and `transition.yaml` add those losses in sequence;
+`hybrid.yaml` trains the relation head; `full.yaml` combines the heads. All topology exactness and frame-pass
 numbers apply only to GT-matched queries. The transition penetration rate is
 a longitudinal boundary proxy based on connector/split/merge labels, not a
 measured intersection polygon intrusion rate. See
