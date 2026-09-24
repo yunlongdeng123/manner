@@ -54,8 +54,15 @@ def main():
                 blended = (1 - args.geometry_weight) * base + args.geometry_weight * geometry
                 accumulators["base_plus_geometry"].update(blended, targets, matched, tags)
                 base_frames += 1
-            endpoint.update(lanes[:, -1, :], data["gt_end"], data["gt_end_tangent"], matched,
-                            data["transition_end_mask"], tags)
+            endpoint.update(
+                lanes[:, -1, :], data["gt_end"], data["gt_end_tangent"], matched,
+                data["transition_end_mask"], tags,
+                endpoint_buckets={
+                    "Connector": data["connector_end_mask"],
+                    "Split": data["split_end_mask"],
+                    "Merge": data["merge_end_mask"],
+                },
+            )
         frames += 1
     report = {
         "split": args.split, "frames": frames, "base_frames": base_frames,

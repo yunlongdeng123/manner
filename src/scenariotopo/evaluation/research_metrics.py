@@ -67,7 +67,7 @@ class EndpointAccumulator:
         self.margin = float(overshoot_margin_m)
         self.stats = defaultdict(lambda: np.zeros(8, dtype=np.float64))
 
-    def update(self, predicted_end, gt_end, gt_end_tangent, matched_mask, transition_end_mask, tags):
+    def update(self, predicted_end, gt_end, gt_end_tangent, matched_mask, transition_end_mask, tags, *, endpoint_buckets=None):
         predicted_end, gt_end, tangent = map(np.asarray, (predicted_end, gt_end, gt_end_tangent))
         matched = np.asarray(matched_mask, dtype=bool)
         transition = np.asarray(transition_end_mask, dtype=bool) & matched
@@ -78,13 +78,30 @@ class EndpointAccumulator:
         error = np.linalg.norm(predicted_end - gt_end, axis=-1)
         forward = np.sum((predicted_end - gt_end) * tangent, axis=-1)
         over = forward > self.margin
-        values = np.asarray([
-            matched.sum(), error[matched].sum(), np.maximum(forward[matched], 0).sum(),
-            np.count_nonzero(over & matched), transition.sum(), np.count_nonzero(over & transition),
-            int(bool(matched.any()) and not bool(np.any(over & matched))), int(bool(matched.any())),
-        ], dtype=np.float64)
+        def values_for(mask):
+            boundary = transition & mask
+            return np.asarray([
+                mask.sum(), error[mask].sum(), np.maximum(forward[mask], 0).sum(),
+                np.count_nonzero(over & mask), boundary.sum(), np.count_nonzero(over & boundary),
+                int(bool(mask.any()) and not bool(np.any(over & mask))), int(bool(mask.any())),
+            ], dtype=np.float64)
+
+        values = values_for(matched)
         for group in ("Overall", *(tags or ["Normal"])):
             self.stats[group] += values
+        if endpoint_buckets:
+            union = np.zeros_like(matched)
+            for name, bucket in endpoint_buckets.items():
+                selected = np.asarray(bucket, dtype=bool)
+                if selected.shape != matched.shape:
+                    raise ValueError("Endpoint bucket masks must be [N]")
+                union |= selected
+                selected = selected & matched
+                if selected.any():
+                    self.stats[f"Endpoint/{name}"] += values_for(selected)
+            ordinary = matched & ~union
+            if ordinary.any():
+                self.stats["Endpoint/Ordinary"] += values_for(ordinary)
 
     def compute(self):
         result = {}

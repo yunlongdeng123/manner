@@ -41,6 +41,7 @@ def main():
         gt_end_tangent = np.zeros((args.queries, 3), dtype=np.float32)
         gt_end_tangent[:, 0] = 1.0
         transition_end_mask = np.zeros(args.queries, dtype=np.bool_)
+        connector_end_mask = np.zeros(args.queries, dtype=np.bool_)
         split_end_mask = np.zeros(args.queries, dtype=np.bool_)
         merge_end_mask = np.zeros(args.queries, dtype=np.bool_)
         if args.queries >= 4:
@@ -59,6 +60,7 @@ def main():
             gt_end=gt_end,
             gt_end_tangent=gt_end_tangent,
             transition_end_mask=transition_end_mask,
+            connector_end_mask=connector_end_mask,
             split_end_mask=split_end_mask,
             merge_end_mask=merge_end_mask,
         )

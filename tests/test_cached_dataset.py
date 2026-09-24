@@ -20,6 +20,7 @@ def test_cached_dataset_round_trip(tmp_path: Path):
         "gt_end": np.ones((3, 3), dtype=np.float32),
         "gt_end_tangent": np.ones((3, 3), dtype=np.float32),
         "transition_end_mask": np.zeros(3, dtype=np.bool_),
+        "connector_end_mask": np.zeros(3, dtype=np.bool_),
         "split_end_mask": np.zeros(3, dtype=np.bool_),
         "merge_end_mask": np.zeros(3, dtype=np.bool_),
         "base_topology_scores": np.zeros((3, 3), dtype=np.float32),

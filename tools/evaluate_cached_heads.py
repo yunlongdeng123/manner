@@ -59,6 +59,11 @@ def main():
                 output["refined_end"][0].cpu().numpy(), tensors["gt_end"][0].cpu().numpy(),
                 tensors["gt_end_tangent"][0].cpu().numpy(), tensors["matched_mask"][0].cpu().numpy(),
                 tensors["transition_end_mask"][0].cpu().numpy(), batch["tags"][0],
+                endpoint_buckets={
+                    "Connector": tensors["connector_end_mask"][0].cpu().numpy(),
+                    "Split": tensors["split_end_mask"][0].cpu().numpy(),
+                    "Merge": tensors["merge_end_mask"][0].cpu().numpy(),
+                },
             )
     report = {
         "split": args.split,

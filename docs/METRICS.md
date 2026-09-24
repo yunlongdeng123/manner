@@ -30,6 +30,8 @@ penetration is the share of these boundaries that overshoot the GT end by the
 configured margin. This is a proxy for region intrusion: OpenLane-V2 subset A
 does not supply an exact polygon for the company's P1 rule. Report the proxy
 by name and never call it the company failure rate.
+Endpoint reports include endpoint-level Connector, Split, Merge and Ordinary
+buckets. Connector/Split/Merge may overlap when a boundary has several roles.
 
 The geometry oracle replaces matched predicted start and end positions with
 GT positions before recomputing distance/heading scores. It deliberately uses

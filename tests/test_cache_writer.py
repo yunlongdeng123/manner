@@ -18,6 +18,7 @@ def test_gt_mapping_and_atomic_cache(tmp_path):
     assert mapped["matched_mask"].tolist() == [True, False, True]
     assert mapped["query_adjacency"][2, 0] == 1
     assert mapped["transition_end_mask"].tolist() == [False, False, True]
+    assert mapped["connector_end_mask"].tolist() == [False, False, True]
     np.testing.assert_allclose(mapped["gt_end_tangent"][2], [1, 0, 0])
 
     writer = FeatureCacheWriter(tmp_path)

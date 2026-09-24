@@ -27,8 +27,11 @@ def test_overshoot_and_transition_proxy():
     gt = np.zeros_like(end)
     tangent = np.tile([1.0, 0.0], (3, 1))
     acc = EndpointAccumulator(overshoot_margin_m=0.5)
-    acc.update(end, gt, tangent, [True, True, True], [True, False, False], [])
+    acc.update(end, gt, tangent, [True, True, True], [True, False, False], [],
+               endpoint_buckets={"Connector": [True, False, False]})
     m = acc.compute()["Overall"]
     assert np.isclose(m["overshoot_rate"], 1 / 3)
     assert m["transition_penetration_proxy_rate"] == 1.0
     assert m["frame_overextension_pass_rate"] == 0.0
+    assert acc.compute()["Endpoint/Connector"]["overshoot_rate"] == 1.0
+    assert acc.compute()["Endpoint/Ordinary"]["overshoot_rate"] == 0.0
