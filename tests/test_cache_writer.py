@@ -31,9 +31,14 @@ def test_gt_mapping_and_atomic_cache(tmp_path):
         gt_lanes=gt_lanes,
         gt_adjacency=adjacency,
         gt_is_intersection_or_connector=[False, True],
+        base_topology_scores=np.full((3, 3), 1.2, dtype=np.float32),
+        semantic_topology_scores=np.full((3, 3), 0.2, dtype=np.float32),
         tags=["Split"],
         split="val",
     )
     assert (tmp_path / record["cache_path"]).is_file()
+    with np.load(tmp_path / record["cache_path"]) as arrays:
+        assert arrays["base_topology_scores"][0, 0] > 1.0
+        np.testing.assert_allclose(arrays["semantic_topology_scores"], 0.2)
     index_record = json.loads((tmp_path / "index.jsonl").read_text(encoding="utf-8"))
     assert index_record["frame_key"] == "val/segment/123"

@@ -22,6 +22,8 @@ def main():
     parser.add_argument("--split", default="val")
     parser.add_argument("--device", choices=("cpu", "cuda"), default="cpu")
     parser.add_argument("--threshold", type=float, default=0.5)
+    parser.add_argument("--score-key", choices=("base_topology_scores", "semantic_topology_scores"),
+                        default="base_topology_scores", help="Baseline score variant without a trained head")
     parser.add_argument("--overshoot-margin-m", type=float, default=0.5)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
@@ -40,6 +42,8 @@ def main():
         parser.error("an untrained head requires --checkpoint")
     model.eval()
     dataset = CachedOpenLaneDataset(args.index, split=args.split)
+    if len(dataset) == 0:
+        raise ValueError(f"No frames with model_split={args.split} in {args.index}")
     loader = DataLoader(dataset, batch_size=1, shuffle=False, num_workers=0, collate_fn=collate_cached_frames)
     metrics = MatchedGraphAccumulator(args.threshold)
     endpoints = EndpointAccumulator(args.overshoot_margin_m)
@@ -48,9 +52,9 @@ def main():
             tensors = {key: value.to(args.device) for key, value in batch.items() if torch.is_tensor(value)}
             output = model(tensors["query_features"], tensors["lanes"], tensors["confidence"])
             if model.topology_head is None:
-                if "base_topology_scores" not in tensors:
-                    raise ValueError("This cache has no base_topology_scores for baseline evaluation")
-                scores = tensors["base_topology_scores"].cpu().numpy()
+                if args.score_key not in tensors:
+                    raise ValueError(f"This cache has no {args.score_key} for baseline evaluation")
+                scores = tensors[args.score_key].cpu().numpy()
             else:
                 scores = torch.sigmoid(output["logits"]).cpu().numpy()
             targets = tensors["query_adjacency"].cpu().numpy()
@@ -68,6 +72,7 @@ def main():
     report = {
         "split": args.split,
         "frames": len(dataset),
+        "score_key": args.score_key if model.topology_head is None else "trained_head",
         "scope": "GT-matched queries only; not official OpenLane-V2 TOP_ll or full detector frame pass",
         "topology": metrics.compute(),
         "endpoint": endpoints.compute(),

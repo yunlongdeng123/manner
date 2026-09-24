@@ -102,6 +102,7 @@ class FeatureCacheWriter:
         gt_adjacency,
         gt_is_intersection_or_connector: Sequence[bool] | None = None,
         base_topology_scores=None,
+        semantic_topology_scores=None,
         tags: Sequence[str],
         split: str,
         metadata: Mapping[str, Any] | None = None,
@@ -121,10 +122,17 @@ class FeatureCacheWriter:
             query_to_gt, gt_lanes, gt_adjacency,
             gt_is_intersection_or_connector=gt_is_intersection_or_connector,
         )
-        if base_topology_scores is not None:
-            base_topology_scores = np.asarray(base_topology_scores, dtype=np.float32)
-            if base_topology_scores.shape != (query_features.shape[0], query_features.shape[0]):
-                raise ValueError("base_topology_scores must be [N,N]")
+        topology_scores = {}
+        for name, values in (
+            ("base_topology_scores", base_topology_scores),
+            ("semantic_topology_scores", semantic_topology_scores),
+        ):
+            if values is None:
+                continue
+            values = np.asarray(values, dtype=np.float32)
+            if values.shape != (query_features.shape[0], query_features.shape[0]):
+                raise ValueError(f"{name} must be [N,N]")
+            topology_scores[name] = values
 
         safe_name = frame_key.replace("/", "__").replace("\\", "__")
         final_path = self.frames_root / f"{safe_name}.npz"
@@ -132,8 +140,7 @@ class FeatureCacheWriter:
             temp_path = Path(handle.name)
         try:
             payload = dict(query_features=query_features, lanes=lanes, confidence=confidence, **mapped)
-            if base_topology_scores is not None:
-                payload["base_topology_scores"] = base_topology_scores
+            payload.update(topology_scores)
             np.savez_compressed(temp_path, **payload)
             os.replace(temp_path, final_path)
         except BaseException:

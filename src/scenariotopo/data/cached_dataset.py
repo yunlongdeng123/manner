@@ -59,8 +59,9 @@ class CachedOpenLaneDataset:
                 name: torch.from_numpy(np.asarray(arrays[name])).float()
                 for name in REQUIRED_ARRAYS
             }
-            if "base_topology_scores" in arrays:
-                item["base_topology_scores"] = torch.from_numpy(np.asarray(arrays["base_topology_scores"])).float()
+            for name in ("base_topology_scores", "semantic_topology_scores"):
+                if name in arrays:
+                    item[name] = torch.from_numpy(np.asarray(arrays[name])).float()
         item["matched_mask"] = item["matched_mask"].bool()
         for name in ("transition_end_mask", "connector_end_mask", "split_end_mask", "merge_end_mask"):
             item[name] = item[name].bool()
@@ -76,10 +77,11 @@ def collate_cached_frames(batch: Sequence[Dict[str, Any]]) -> Dict[str, Any]:
         raise RuntimeError("PyTorch is required to collate feature caches") from error
     tensor_keys = REQUIRED_ARRAYS
     output = {key: torch.stack([item[key] for item in batch], dim=0) for key in tensor_keys}
-    if all("base_topology_scores" in item for item in batch):
-        output["base_topology_scores"] = torch.stack([item["base_topology_scores"] for item in batch], dim=0)
-    elif any("base_topology_scores" in item for item in batch):
-        raise ValueError("Mixed cache batches with and without base_topology_scores")
+    for name in ("base_topology_scores", "semantic_topology_scores"):
+        if all(name in item for item in batch):
+            output[name] = torch.stack([item[name] for item in batch], dim=0)
+        elif any(name in item for item in batch):
+            raise ValueError(f"Mixed cache batches with and without {name}")
     output["frame_key"] = [item["frame_key"] for item in batch]
     output["tags"] = [item["tags"] for item in batch]
     return output

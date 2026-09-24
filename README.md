@@ -1,6 +1,6 @@
 # ScenarioTopo：中心线端点与拓扑联合优化
 
-本项目以 [OpenLane-V2 subset A](https://github.com/OpenDriveLab/OpenLane-V2) 为公开数据，使用冻结的 [TopoLogic](https://github.com/Franpin/TopoLogic) 感知模型，研究两个相互关联的问题：**中心线终点过度延伸**与**有向车道连接错误**。当前远端实例没有可用 GPU；数据、评测、轻量模型与 CPU 测试已准备好，真实模型推理和训练尚未运行。
+本项目以 [OpenLane-V2 subset A](https://github.com/OpenDriveLab/OpenLane-V2) 为公开数据，使用冻结的 [TopoLogic](https://github.com/Franpin/TopoLogic) 感知模型，研究两个相互关联的问题：**中心线终点过度延伸**与**有向车道连接错误**。新 AutoDL 实例已跑通官方 checkpoint 的真实 GPU 推理、冻结特征导出、跨场景基线评测和轻量头试训。
 
 ## 架构组件
 
@@ -14,7 +14,7 @@
 | --- | --- | --- |
 | OpenLane-V2 subset A | 官方 `lane_centerline` 三维点、`topology_lclc` 有向邻接矩阵及相机标定；标注来自 OpenLane-V2 发布包 | 已提取到 `/root/autodl-tmp/datasets/openlanev2/OpenLane-V2`；原始标注包校验 MD5 后已移除，保留解压数据 |
 | Argoverse 2 Sensor 图像 | AutoDL 公共数据挂载 `/root/autodl-pub/argoverse2.0-sensor`；这是图像来源，**不包含** OpenLane-V2 的拓扑标注 | 原始 val 划分的 4,806 帧、33,642 张图像（每帧 7 路相机）已按需提取，提取报告为零缺失；训练图像仍保留在只读 tar 分片中 |
-| TopoLogic 源码与官方 checkpoint | 冻结感知主干、查询特征及原始拓扑分数的来源 | 源码已固定在 `c7b37f7`；checkpoint 位于 `/root/autodl-tmp/checkpoints/topologic_r50_8x1_24e_olv2_subset_A.pth` |
+| TopoLogic 源码与官方 checkpoint | 冻结感知主干、查询特征及原始拓扑分数的来源 | 源码已固定在 `c7b37f7`；checkpoint 位于 `/root/autodl-tmp/checkpoints/topologic_r50_8x1_24e_olv2_subset_A.pth`；真实 GPU 推理已验证 |
 | OpenLane-V2 devkit | 数据预处理和后续官方评测 | 固定为 `v2.1.0`，提交 `d731a26` |
 
 目前**没有使用 SD Map**。后续若做地图消融，需单独准备地图输入，并保持无地图基线可比较。数据与 checkpoint 不纳入 Git 仓库；校验值和来源见 [复现锁定信息](docs/LOCKS.md)，图像提取方法见 [数据准备说明](docs/DATA_PREP.md)。
@@ -48,9 +48,9 @@
 
 ## 环境与额外依赖
 
-**当前 CPU 环境已安装**：Python 3.10.8、NumPy 1.23.5、PyYAML 6.0.2、pytest 8.3.5、PyTorch 2.1.2+cpu。依赖定义见 [requirements-cpu.txt](requirements-cpu.txt)、[requirements-model-cpu.txt](requirements-model-cpu.txt)。远端可用路径为 `/root/autodl-tmp/envs/scenariotopo`；实例内存限额 **2 GiB**，数据盘 **50 GiB**，检查时约 **29 GiB** 可用。
+**CPU 环境**：Python 3.10.8、NumPy 1.23.5、PyYAML 6.0.2、pytest 8.3.5、PyTorch 2.1.2+cpu。依赖定义见 [requirements-cpu.txt](requirements-cpu.txt)、[requirements-model-cpu.txt](requirements-model-cpu.txt)；路径为 `/root/autodl-tmp/envs/scenariotopo`。
 
-**真实 TopoLogic 推理仍需** NVIDIA GPU 和独立的旧版环境。TopoLogic 官方列出 Linux、Python 3.8.x、CUDA 11.1、PyTorch 1.9.1；其固定 `requirements.txt` 还包含 `openlanev2==2.1.0`、`mmcv-full==1.5.2`、`mmdet==2.26.0`、`mmsegmentation==0.29.1`、`mmdet3d==1.0.0rc6` 等。当前 CPU 虚拟环境**不能直接替代**该 GPU 环境。检查入口见 [GPU 交接说明](docs/GPU_HANDOFF.md)。
+**GPU 环境**：新实例使用 RTX 4080 SUPER（32 GB）、Python 3.10.8、PyTorch 2.1.2+cu118、`mmcv-full==1.7.2`，以及 TopoLogic 所需的 `mmdet==2.26.0`、`mmsegmentation==0.29.1`、`mmdet3d==1.0.0rc6`。原版 TopoLogic 的 Python 3.8 / CUDA 11.1 / PyTorch 1.9.1 依赖与新 GPU 不匹配，因此兼容栈仅在独立 `/root/autodl-tmp/envs/topologic-gpu` 中安装、补丁并通过实际推理验证。OpenLane-V2 devkit、SciPy、Shapely、OR-Tools、相机图像和官方 checkpoint 也都必需；具体版本与复现命令见 [GPU 实例说明](docs/GPU_HANDOFF.md)。实例数据盘为 50 GiB，验证图片约占 13 GiB。
 
 训练相机图像也没有全部解包：AutoDL 的 AV2 分片总量远超 50 GiB 数据盘。GPU 阶段应按训练分片逐个提取、导出冻结特征并清理本次提取的图像；已生成的相机请求索引有 **190,981 条**。不要把原始数据、checkpoint 或特征缓存推入 Git。
 
@@ -72,7 +72,23 @@ python tools/validate_data.py \
 pytest -q
 ```
 
-当前干净 Git 导出目录内 **16 项测试通过**；合成缓存已验证训练和评测入口。**合成结果不是 OpenLane-V2 实验结果。**真实实验必须先在 GPU 上运行官方 checkpoint，缓存查询特征、中心线、置信度、原始 LCLC 分数及一对一 GT 匹配，再运行上述消融。缓存字段要求见 [GPU 交接说明](docs/GPU_HANDOFF.md)。
+当前 **16 项 CPU 测试通过**；另已用官方 checkpoint 在真实 OpenLane-V2 图像上生成查询缓存。缓存同时保存纯语义分数与 TopoLogic 几何融合分数，方便独立评测 E1。已完成的真实试验与适用边界见 [GPU 实例说明](docs/GPU_HANDOFF.md)。
+
+## GPU 实验：地理隔离验证集
+
+下表使用原始 val 内的 **15 个验证场景、480 帧**。轻量头只在另外 **121 个地理隔离训练场景、122 帧**上训练 5 个 epoch；按每段 32 帧间隔抽样，其中一段抽到 2 帧。拓扑阈值仅在这 122 帧上按 F1 选择，再固定到验证集：纯语义 0.20、TopoLogic 融合分数 0.75、学习型关系头 0.90。端点“过延伸”采用纵向误差大于 0.5 m 的代理定义。
+
+| 方案 | 匹配查询拓扑 F1 ↑ | 帧拓扑全对率 ↑ | 端点过延伸率 ↓ | 帧端点通过率 ↑ |
+| --- | ---: | ---: | ---: | ---: |
+| 纯语义拓扑 | 0.675 | 2.1% | 28.5% | 2.3% |
+| TopoLogic 语义＋几何（E1） | **0.709** | 2.9% | 28.5% | 2.3% |
+| 仅端点回归 | 0.709 | 2.9% | 29.7% | 2.5% |
+| 端点＋纵向过延伸损失 | 0.709 | 2.9% | 26.7% | 3.5% |
+| 端点＋过渡边界损失 | 0.709 | 2.9% | 22.8% | 4.6% |
+| 仅学习型几何语义拓扑 | 0.686 | 5.6% | 28.5% | 2.3% |
+| 端点＋几何语义拓扑联合头 | 0.699 | 4.4% | **22.3%** | **5.4%** |
+
+这组小样本试验确认几何融合有拓扑收益，过延伸/过渡损失能降低纵向越界。联合头的拓扑 F1 **尚未超过** TopoLogic 融合基线；部分端点方案的平均欧氏端点误差还略有增大。帧级通过率仍很低，不能宣称两个 P1 目标已经解决。用 GT 端点替换预测端点的诊断实验使纯几何拓扑 F1 从 **0.599** 升至 **0.674**，提示端点误差值得继续研究；oracle 不用于实际推理。
 
 ## 评测边界
 
