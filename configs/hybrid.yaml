@@ -1,0 +1,21 @@
+experiment: A4_hybrid_hard_negative
+features:
+  source: topologic_official_cache
+  freeze_backbone: true
+  freeze_bev_encoder: true
+  freeze_lane_decoder: true
+modules:
+  endpoint_refiner: false
+  hybrid_topology: true
+  hard_negative_ranking: true
+hybrid_topology:
+  query_dim: 256
+  hidden_dim: 128
+  pair_chunk_size: 16
+loss_weights:
+  relation: 1.0
+  ranking: 0.25
+hard_negative:
+  margin: 0.2
+  negatives_per_source: 8
+

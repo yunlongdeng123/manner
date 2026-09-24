@@ -1,0 +1,6 @@
+{
+  "train": {
+    "seg_split_merge": ["100.json"]
+  }
+}
+

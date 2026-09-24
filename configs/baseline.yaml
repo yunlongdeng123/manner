@@ -1,0 +1,13 @@
+experiment: A0_baseline
+features:
+  source: topologic_official_cache
+  freeze_backbone: true
+  freeze_bev_encoder: true
+  freeze_lane_decoder: true
+modules:
+  endpoint_refiner: false
+  hybrid_topology: false
+  hard_negative_ranking: false
+sampler:
+  scenario_balanced: false
+

@@ -1,0 +1,28 @@
+dataset:
+  name: OpenLane-V2
+  version: "2.1.0"
+  subset: subset_A
+  camera_source: autodl_public_data_argoverse2.0-sensor
+  annotation_source: official_openlanev2_subset_A_info
+  workers: 0
+  threads: 1
+
+scene_tags:
+  split_degree: 2
+  merge_degree: 2
+  complex_lane_count: 20
+  complex_edge_count: 20
+  dense_edge_count: 12
+  curve_p95_per_meter: 0.025
+  far_field_m: 50.0
+  short_lane_m: 10.0
+  sparse_positive_max_edges: 1
+  elevation_delta_m: 2.5
+  overlap_xy_margin_m: 1.0
+
+geo_split:
+  radius_m: 80.0
+  seed: 20260905
+  train_ratio: 0.8
+  val_ratio: 0.1
+  test_ratio: 0.1

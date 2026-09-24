@@ -1,0 +1,33 @@
+experiment: synthetic_cpu_smoke_only
+seed: 17
+modules:
+  endpoint_refiner: true
+  hybrid_topology: true
+  hard_negative_ranking: true
+sampler:
+  scenario_balanced: true
+  alpha: 0.5
+  beta: 0.0
+  min_weight: 0.25
+  max_weight: 4.0
+endpoint_refiner:
+  query_dim: 16
+  hidden_dim: 12
+  max_offset_m: 3.0
+hybrid_topology:
+  query_dim: 16
+  hidden_dim: 12
+  pair_chunk_size: 2
+loss_weights:
+  relation: 1.0
+  endpoint: 1.0
+  connection: 0.01
+  overshoot: 0.1
+  transition: 0.1
+  ranking: 0.1
+overshoot:
+  margin_m: 0.5
+  transition_margin_m: 0.0
+hard_negative:
+  margin: 0.2
+  negatives_per_source: 4

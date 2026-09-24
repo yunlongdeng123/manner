@@ -1,0 +1,4 @@
+# Install with:
+# python -m pip install --extra-index-url https://download.pytorch.org/whl/cpu -r requirements-model-cpu.txt
+torch==2.1.2+cpu
+
