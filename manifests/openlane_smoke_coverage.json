@@ -1,0 +1,14 @@
+{
+  "train": {
+    "frames": 64,
+    "images": 448,
+    "missing_images": 0,
+    "annotation_file": "/root/autodl-tmp/manner-repro/data/topogpt_smoke/openlane_subA/data_dict_subset_A_train.pkl"
+  },
+  "val": {
+    "frames": 8,
+    "images": 56,
+    "missing_images": 0,
+    "annotation_file": "/root/autodl-tmp/manner-repro/data/topogpt_smoke/openlane_subA/data_dict_subset_A_val.pkl"
+  }
+}

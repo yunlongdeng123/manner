@@ -1,0 +1,8 @@
+{
+  "source": "/root/autodl-tmp/manner-repro/data/can_bus",
+  "physical_storage": "/root/manner-repro-download-cache/can_bus",
+  "files": 7832,
+  "bytes": 4634070525,
+  "atomic_symlinks": true,
+  "crc_verified": true
+}

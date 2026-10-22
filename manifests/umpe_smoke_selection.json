@@ -1,0 +1,16 @@
+{
+  "frames": 8,
+  "real_missing_raster_frames": 4,
+  "tokens": [
+    "8e46878ced734164aae0e83567aa02a5",
+    "6f5b556ef64b47f596df0314f6db9f99",
+    "4f0f533c84c4493599f2eb3a60882b16",
+    "76ffdcc4676f4b75b7adf32b0ff47c4a",
+    "55c258972acb4300a3a6077a531ab050",
+    "44237858a539457da65822bfcf58c414",
+    "8cd36e9531fb4eba8e6ac1d666c4641c",
+    "7bebe3c9be714f02837f8617c56df122"
+  ],
+  "annotation_file": "/root/autodl-tmp/manner-repro/data/nuscenes/nuscenes_map_infos_temporal_val_smoke_diverse.pkl",
+  "formal_validation_unchanged": true
+}

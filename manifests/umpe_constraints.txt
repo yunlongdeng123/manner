@@ -1,0 +1,9 @@
+numpy==1.23.5
+scipy==1.10.1
+numba==0.56.4
+matplotlib==3.5.3
+networkx==2.8.8
+jupyter==1.0.0
+notebook==6.5.7
+ipykernel==6.29.5
+jupyter-client==7.4.9

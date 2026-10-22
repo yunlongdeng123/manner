@@ -1,0 +1,26 @@
+{
+  "nuscenes_trainval_hdmap.pkl": {
+    "keys": 34149,
+    "selected_frames": 6059,
+    "missing": [],
+    "globals": [
+      "collections OrderedDict",
+      "torch._utils _rebuild_tensor_v2",
+      "torch.storage _load_from_bytes"
+    ],
+    "seconds": 45.023273192346096,
+    "inspection": "symbolic pickle stack; HD keys additionally compared with real unpickling"
+  },
+  "nuscenes_trainval_sdmap.pkl": {
+    "keys": 34149,
+    "selected_frames": 6059,
+    "missing": [],
+    "globals": [
+      "collections OrderedDict",
+      "torch._utils _rebuild_tensor_v2",
+      "torch.storage _load_from_bytes"
+    ],
+    "seconds": 748.9939834102988,
+    "inspection": "symbolic pickle stack; HD keys additionally compared with real unpickling"
+  }
+}

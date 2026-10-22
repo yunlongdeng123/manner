@@ -1,0 +1,10 @@
+{
+  "file": "raw/OpenLane-V2_sample.tar",
+  "revision": "6c02353d42c777e2aab5a1056fbc80d1cc8fd798",
+  "size": 313446400,
+  "sha256": "449146cec823c12ca2932a9768b7d2f449be8d687dd4a83ac3d3f586fd2ecd39",
+  "md5": "21c607fa5a1930275b7f1409b25042a0",
+  "extracted_count": 512,
+  "new_bytes": 313038485,
+  "destination": "/root/autodl-tmp/manner-repro/data/openlane_smoke"
+}

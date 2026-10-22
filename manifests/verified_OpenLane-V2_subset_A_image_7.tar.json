@@ -1,0 +1,11 @@
+{
+  "file": "OpenLane-V2_subset_A_image_7.tar",
+  "revision": "6c02353d42c777e2aab5a1056fbc80d1cc8fd798",
+  "size": 22584084480,
+  "sha256": "198708fa837d5122a8b1f8c747b5d78edd247f0aa99f2efba475bcc7c10b2c0d",
+  "md5": "c73af4a7aef2692b96e4e00795120504",
+  "destination": "/root/autodl-tmp/manner-repro/data/openlanev2",
+  "extracted_count": 33642,
+  "extracted_bytes": 22557604382,
+  "archive_cache_reclaimed": true
+}

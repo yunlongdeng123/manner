@@ -1,0 +1,130 @@
+{
+  "topogpt/pretrain.ckpt": {
+    "file": "/root/autodl-tmp/manner-repro/weights/topogpt/pretrain.ckpt",
+    "keys": [
+      "epoch",
+      "global_step",
+      "pytorch-lightning_version",
+      "state_dict",
+      "loops",
+      "callbacks",
+      "optimizer_states",
+      "lr_schedulers",
+      "hparams_name",
+      "hyper_parameters"
+    ],
+    "tensor_count": 153,
+    "tensor_elements": 104778378,
+    "prefixes": {
+      "gpt_net": 87,
+      "projector_net": 66
+    },
+    "cpu_mmap_load": true,
+    "full_state": true,
+    "global_step": 42176
+  },
+  "topogpt/finetune.ckpt": {
+    "file": "/root/autodl-tmp/manner-repro/weights/topogpt/finetune.ckpt",
+    "keys": [
+      "epoch",
+      "global_step",
+      "pytorch-lightning_version",
+      "state_dict",
+      "loops",
+      "callbacks",
+      "optimizer_states",
+      "lr_schedulers",
+      "hparams_name",
+      "hyper_parameters"
+    ],
+    "tensor_count": 736,
+    "tensor_elements": 203280527,
+    "prefixes": {
+      "gpt_net": 207,
+      "projector_net": 66,
+      "encoder_net": 422,
+      "flow_net": 41
+    },
+    "cpu_mmap_load": true,
+    "full_state": true,
+    "global_step": 8448
+  },
+  "umpe/maptrv2_umpe.pth": {
+    "file": "/root/autodl-tmp/manner-repro/weights/umpe/maptrv2_umpe.pth",
+    "keys": [
+      "meta",
+      "state_dict",
+      "optimizer"
+    ],
+    "tensor_count": 994,
+    "tensor_elements": 56059250,
+    "prefixes": {
+      "pts_bbox_head": 582,
+      "img_backbone": 318,
+      "img_neck": 4,
+      "map_encoder": 78,
+      "hd_aligner": 6,
+      "sd_aligner": 6
+    },
+    "cpu_mmap_load": true,
+    "full_state": true,
+    "meta_keys": [
+      "mmdet_version",
+      "mmseg_version",
+      "mmdet3d_version",
+      "config",
+      "CLASSES",
+      "PALETTE",
+      "env_info",
+      "seed",
+      "exp_name",
+      "hook_msgs",
+      "fp16",
+      "epoch",
+      "iter",
+      "mmcv_version",
+      "time"
+    ],
+    "epoch": 29,
+    "iter": 135981
+  },
+  "umpe/maptrv2_umpe_ft.pth": {
+    "file": "/root/autodl-tmp/manner-repro/weights/umpe/maptrv2_umpe_ft.pth",
+    "keys": [
+      "meta",
+      "state_dict",
+      "optimizer"
+    ],
+    "tensor_count": 994,
+    "tensor_elements": 56059250,
+    "prefixes": {
+      "pts_bbox_head": 582,
+      "img_backbone": 318,
+      "img_neck": 4,
+      "map_encoder": 78,
+      "hd_aligner": 6,
+      "sd_aligner": 6
+    },
+    "cpu_mmap_load": true,
+    "full_state": true,
+    "meta_keys": [
+      "mmdet_version",
+      "mmseg_version",
+      "mmdet3d_version",
+      "config",
+      "CLASSES",
+      "PALETTE",
+      "env_info",
+      "seed",
+      "exp_name",
+      "hook_msgs",
+      "fp16",
+      "epoch",
+      "iter",
+      "mmcv_version",
+      "time"
+    ],
+    "epoch": 44,
+    "iter": 206316
+  }
+}

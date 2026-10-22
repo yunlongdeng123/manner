@@ -1,0 +1,8 @@
+{
+  "frames": 4806,
+  "images": 33642,
+  "missing_images": 0,
+  "converted_frames": 4806,
+  "annotation_file": "/root/autodl-tmp/manner-repro/data/topogpt/openlane_subA/data_dict_subset_A_val.pkl",
+  "official_split_exact_match": true
+}

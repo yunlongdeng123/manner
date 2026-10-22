@@ -1,0 +1,12 @@
+{
+  "maptrv2_umpe.pth": {
+    "zip_crc_verified": true,
+    "members": 2112,
+    "seconds": 4.10967792570591
+  },
+  "maptrv2_umpe_ft.pth": {
+    "zip_crc_verified": true,
+    "members": 2112,
+    "seconds": 4.100406974554062
+  }
+}

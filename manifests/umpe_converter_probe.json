@@ -1,0 +1,11 @@
+{
+  "token": "e93e98b63d3b40209056d129dc53ceee",
+  "camera_count": 6,
+  "annotation_counts": {
+    "divider": 3,
+    "ped_crossing": 1,
+    "boundary": 4,
+    "centerline": 6
+  },
+  "geometry_cache_exact_match": true
+}

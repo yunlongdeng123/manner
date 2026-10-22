@@ -1,0 +1,8 @@
+{
+  "val_frames": 6019,
+  "train_smoke_frames": 40,
+  "val_scenes": 150,
+  "converter_sha256": "99f5bae91edf23c862bd95d88d44a24cb16686729a2ec5132f69776ac0157fa2",
+  "full_train_prepared": false,
+  "adapter": "paths and intrinsics only; discarded 3D boxes omitted; official geometric functions retained"
+}

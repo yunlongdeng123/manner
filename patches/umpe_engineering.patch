@@ -1,0 +1,42 @@
+diff --git a/Maptrv2/mmdetection3d/requirements/runtime.txt b/Maptrv2/mmdetection3d/requirements/runtime.txt
+index f0e7ae4..d5e833b 100644
+--- a/Maptrv2/mmdetection3d/requirements/runtime.txt
++++ b/Maptrv2/mmdetection3d/requirements/runtime.txt
+@@ -1,8 +1,7 @@
+ lyft_dataset_sdk
+-networkx>=2.2,<2.3
+-# we may unlock the verion of numba in the future
+-numba==0.48.0
+-numpy<1.20.0
++networkx>=2.8.8,<3
++numba>=0.56.4,<0.57
++numpy>=1.23.5,<1.24
+ nuscenes-devkit
+ plyfile
+ scikit-image
+diff --git a/Maptrv2/tools/test.py b/Maptrv2/tools/test.py
+index fd2cf45..d08e30e 100644
+--- a/Maptrv2/tools/test.py
++++ b/Maptrv2/tools/test.py
+@@ -237,8 +237,7 @@ def main():
+     if rank == 0:
+         if args.out:
+             print(f'\nwriting results to {args.out}')
+-            assert False
+-            #mmcv.dump(outputs['bbox_results'], args.out)
++            mmcv.dump(outputs, args.out)
+         kwargs = {} if args.eval_options is None else args.eval_options
+         kwargs['jsonfile_prefix'] = osp.join('test', args.config.split(
+             '/')[-1].split('.')[-2], time.ctime().replace(' ', '_').replace(':', '_'))
+@@ -255,7 +254,10 @@ def main():
+                 eval_kwargs.pop(key, None)
+             eval_kwargs.update(dict(metric=args.eval, **kwargs))
+ 
+-            print(dataset.evaluate(outputs, **eval_kwargs))
++            metrics = dataset.evaluate(outputs, **eval_kwargs)
++            print(metrics)
++            if args.out:
++                mmcv.dump(metrics, osp.splitext(args.out)[0] + '.metrics.json')
+ 
+ 
+ if __name__ == '__main__':

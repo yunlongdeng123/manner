@@ -1,0 +1,49 @@
+{
+  "nuscenes_satellite_map.zip": {
+    "files": 34149,
+    "selected_frames": 6059,
+    "missing": []
+  },
+  "nuscenes_rasterized_sdmap.zip": {
+    "files": 34083,
+    "selected_frames": 6059,
+    "missing": [
+      "44237858a539457da65822bfcf58c414",
+      "4b894442c95141f9affd731d9da7b43c",
+      "55c258972acb4300a3a6077a531ab050",
+      "7bebe3c9be714f02837f8617c56df122",
+      "7f594234e8034228b1a7d727f1981e09",
+      "841dd6709e9b4d7c9d6bf888f1fe6d7e",
+      "8cd36e9531fb4eba8e6ac1d666c4641c",
+      "8e352d4a6c6f40c8ad4f10a3d2c3f158",
+      "9cdbf5ff7f294549aea0a4307e5d104a",
+      "a1289b27ca1d41deb6fc982be9a3d03c",
+      "c567f9b8e9f34817acdc9c49d791c557",
+      "cb4e6195faad467094fbd4d0a9e960e9",
+      "e00dc15130dc44e796687baadd076ae4",
+      "e54b784a608644a2804fcf800c7499f7",
+      "e63b83b436a0479db7362338cdfab118",
+      "e6e877f31dd447199b56cae07f86daad"
+    ],
+    "missing_policy": "Unmodified official LoadSDRasterFromFile supplies a white raster; no files fabricated",
+    "missing_by_split": {
+      "val": 16,
+      "train_smoke": 0
+    }
+  },
+  "resnet50-19c8e357.pth": {
+    "bytes": 102502400,
+    "sha256": "19c8e3572231adff6824a2da93fd67b5986919a2e65f8b6007eab4edee220097",
+    "seconds": 2.899784930050373
+  },
+  "resnet18-f37072fd.pth": {
+    "bytes": 46830571,
+    "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+    "seconds": 1.410975269973278
+  },
+  "resnet50-11ad3fa6.pth": {
+    "bytes": 102540417,
+    "sha256": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca",
+    "seconds": 35.78842496871948
+  }
+}

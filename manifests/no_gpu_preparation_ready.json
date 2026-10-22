@@ -1,0 +1,40 @@
+{
+  "no_gpu_preparation_ready": true,
+  "time": "2026-10-23 02:14:18 +0800",
+  "sources": {
+    "TopoGPT": {
+      "commit": "6a96f542e3ee4a7535fa3e54e39a52812e74bbcf",
+      "tracked_changes": ""
+    },
+    "UMPE": {
+      "commit": "66164113780fdc5a73e78c26c8ec234154e123e1",
+      "tracked_changes": "Maptrv2/mmdetection3d/requirements/runtime.txt | 7 +++----\n Maptrv2/tools/test.py                          | 8 +++++---\n 2 files changed, 8 insertions(+), 7 deletions(-)"
+    },
+    "OpenLane-V2": {
+      "commit": "4bff01854622e004a9a6513240ce6539351b636d",
+      "tracked_changes": ""
+    }
+  },
+  "papers": {
+    "TopoGPT_2606.31814.pdf": {
+      "bytes": 5961049,
+      "sha256": "b0bb3b6e49f218f1bd2daa347b459c658e365519afc8e401c94724a35014a57b"
+    },
+    "UMPE_2605.02762.pdf": {
+      "bytes": 1258560,
+      "sha256": "cd0ba5568401c3e5ebf5918de6a39a68f603996c12b0f53142fe7073894d1170"
+    }
+  },
+  "topogpt_validation_frames": 4806,
+  "umpe_validation_frames": 6019,
+  "full_training_prepared": false,
+  "formal_training_started": false,
+  "gpu_smoke_executed": false,
+  "cuda_extensions_verified": false,
+  "nvidia_smi": "No devices found.",
+  "pending": [
+    "UMPE CUDA-extension build and actual CUDA-operator execution",
+    "Actual model strict loading and approximately ten-minute GPU smokes",
+    "Official full-validation inference, metrics comparison and final experiment report"
+  ]
+}

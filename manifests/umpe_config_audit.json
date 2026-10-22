@@ -1,0 +1,66 @@
+{
+  "maptrv2_umpe": {
+    "model": [],
+    "test_pipeline": [],
+    "train_pipeline": [],
+    "optimizer": [
+      {
+        "path": "optimizer/lr",
+        "repo": "0.0006",
+        "checkpoint": "6e-05"
+      }
+    ],
+    "lr_config": [],
+    "custom_hooks": [
+      {
+        "path": "custom_hooks/0/target_alpha",
+        "repo": "0.2",
+        "checkpoint": "0.6"
+      }
+    ],
+    "test_dataset_differences": [
+      {
+        "path": "data/test/box_type_3d",
+        "repo": "None",
+        "checkpoint": "'LiDAR'"
+      },
+      {
+        "path": "data/test/test_mode",
+        "repo": "None",
+        "checkpoint": "True"
+      }
+    ]
+  },
+  "maptrv2_umpe_ft": {
+    "model": [],
+    "test_pipeline": [],
+    "train_pipeline": [],
+    "optimizer": [
+      {
+        "path": "optimizer/lr",
+        "repo": "0.0006",
+        "checkpoint": "6e-05"
+      }
+    ],
+    "lr_config": [],
+    "custom_hooks": [
+      {
+        "path": "custom_hooks/0/target_alpha",
+        "repo": "0.2",
+        "checkpoint": "0.6"
+      }
+    ],
+    "test_dataset_differences": [
+      {
+        "path": "data/test/box_type_3d",
+        "repo": "None",
+        "checkpoint": "'LiDAR'"
+      },
+      {
+        "path": "data/test/test_mode",
+        "repo": "None",
+        "checkpoint": "True"
+      }
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "path": "raw/OpenLane-V2_subset_A_image_7.tar",
+    "route": "cdn_direct",
+    "host": "us.aws.cdn.hf.co",
+    "code": 28,
+    "stats": "206 1490944 49698"
+  },
+  {
+    "path": "raw/OpenLane-V2_subset_A_image_7.tar",
+    "route": "cdn_proxy",
+    "host": "us.aws.cdn.hf.co",
+    "code": 28,
+    "stats": "206 13234282 441148"
+  },
+  {
+    "path": "raw/OpenLane-V2_subset_A_image_7.tar",
+    "route": "hf_proxy",
+    "host": "huggingface.co",
+    "code": 28,
+    "stats": "000 0 0"
+  },
+  {
+    "path": "raw/OpenLane-V2_subset_A_image_7.tar",
+    "route": "mirror_direct",
+    "host": "hf-mirror.com",
+    "code": 28,
+    "stats": "206 2141113 70574"
+  },
+  {
+    "path": "nuscenes_satellite_map.zip",
+    "route": "cdn_direct",
+    "host": "us.aws.cdn.hf.co",
+    "code": 0,
+    "stats": "206 16777216 1272162"
+  },
+  {
+    "path": "nuscenes_satellite_map.zip",
+    "route": "cdn_proxy",
+    "host": "us.aws.cdn.hf.co",
+    "code": 28,
+    "stats": "206 15082648 502760"
+  },
+  {
+    "path": "nuscenes_satellite_map.zip",
+    "route": "hf_proxy",
+    "host": "huggingface.co",
+    "code": 28,
+    "stats": "206 4690900 155879"
+  },
+  {
+    "path": "nuscenes_satellite_map.zip",
+    "route": "mirror_direct",
+    "host": "hf-mirror.com",
+    "code": 0,
+    "stats": "206 16777216 1717341"
+  }
+]
