@@ -1,0 +1,94 @@
+{
+  "root": "/root/autodl-tmp/manner-repro",
+  "environments": {
+    "topogpt": true,
+    "umpe": true
+  },
+  "checkpoint_inventory": [
+    "topogpt/pretrain.ckpt",
+    "topogpt/finetune.ckpt",
+    "umpe/maptrv2_umpe.pth",
+    "umpe/maptrv2_umpe_ft.pth"
+  ],
+  "openlane_archives_verified": {
+    "OpenLane-V2_sample.tar": true,
+    "OpenLane-V2_subset_A_info.tar": true,
+    "OpenLane-V2_subset_A_image_7.tar": true
+  },
+  "topogpt_data": {
+    "frames": 4806,
+    "images": 33642,
+    "missing_images": 0,
+    "converted_frames": 4806,
+    "annotation_file": "/root/autodl-tmp/manner-repro/data/topogpt/openlane_subA/data_dict_subset_A_val.pkl",
+    "official_split_exact_match": true
+  },
+  "topogpt_smoke_data": {
+    "train": {
+      "frames": 64,
+      "images": 448,
+      "missing_images": 0,
+      "annotation_file": "/root/autodl-tmp/manner-repro/data/topogpt_smoke/openlane_subA/data_dict_subset_A_train.pkl"
+    },
+    "val": {
+      "frames": 8,
+      "images": 56,
+      "missing_images": 0,
+      "annotation_file": "/root/autodl-tmp/manner-repro/data/topogpt_smoke/openlane_subA/data_dict_subset_A_val.pkl"
+    }
+  },
+  "nuscenes_inputs": {
+    "expected": 42413,
+    "missing": [],
+    "val_samples": 6019
+  },
+  "umpe_scenes_prepared": 151,
+  "umpe_scenes_expected": 151,
+  "umpe_infos": {
+    "val_frames": 6019,
+    "train_smoke_frames": 40,
+    "val_scenes": 150,
+    "converter_sha256": "99f5bae91edf23c862bd95d88d44a24cb16686729a2ec5132f69776ac0157fa2",
+    "full_train_prepared": false,
+    "adapter": "paths and intrinsics only; discarded 3D boxes omitted; official geometric functions retained"
+  },
+  "prior_keys": {
+    "nuscenes_trainval_hdmap.pkl": {
+      "keys": 34149,
+      "selected_frames": 6059,
+      "missing": [],
+      "globals": [
+        "collections OrderedDict",
+        "torch._utils _rebuild_tensor_v2",
+        "torch.storage _load_from_bytes"
+      ],
+      "seconds": 45.023273192346096,
+      "inspection": "symbolic pickle stack; HD keys additionally compared with real unpickling"
+    },
+    "nuscenes_trainval_sdmap.pkl": {
+      "keys": 34149,
+      "selected_frames": 6059,
+      "missing": [],
+      "globals": [
+        "collections OrderedDict",
+        "torch._utils _rebuild_tensor_v2",
+        "torch.storage _load_from_bytes"
+      ],
+      "seconds": 748.9939834102988,
+      "inspection": "symbolic pickle stack; HD keys additionally compared with real unpickling"
+    }
+  },
+  "cpu_preparation": {
+    "phase": "topogpt_ready_umpe_continuing",
+    "time": "2026-10-23 01:56:10 +0800"
+  },
+  "gpu_smoke_passed": {
+    "topogpt": false,
+    "umpe": false
+  },
+  "free_GiB": {
+    "/root": 7.63,
+    "/root/autodl-tmp/manner-repro": 7.02
+  },
+  "formal_training_started": false
+}

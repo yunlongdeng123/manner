@@ -1,7 +1,7 @@
 # TopoGPT 与 UMPE 复现现场
 
 主机：`manner-3090-1023`。根目录：`/root/autodl-tmp/manner-repro`。
-本次复现官方权重的验证结果，已先以真实 GPU smoke 验证训练、保存、恢复和评价入口。完整重新预训练、全量微调尚未启动，也未承诺其计算预算。2026-10-23 的 GPU 阶段已完成两套 smoke，目前正在运行完整验证；最终分数以结果文件及覆盖核验为准。
+本次复现官方权重的验证结果，已先以真实 GPU smoke 验证训练、保存、恢复和评价入口。完整重新预训练、全量微调尚未启动，也未承诺其计算预算。2026-10-23 启动的 GPU 阶段已完成两套 smoke，以及 TopoGPT 和 UMPE 两份权重的完整验证。实际分数与口径见 [复现结果报告](reports/reproduction_report.md)，逐帧覆盖、哈希和原始指标均已保存。
 
 ```mermaid
 flowchart LR
@@ -100,4 +100,4 @@ UMPE 恢复入口先后发现并修复两个审计兼容问题：MMCV JSON logge
 
 首次 UMPE 完整评测在创建多进程数据加载 worker 时因旧数据集对象含不可序列化的 `dict_keys` 退出，尚未出帧。完整评测已改用与 smoke 一致的 `workers_per_gpu=0`，同一数据、模型和评测代码正常运行。失败日志独立保留，重试输出使用新目录。
 
-后续入口：`scripts/umpe_eval_pair.sh` 顺序评测官方 ft/base 权重；`scripts/runtime_status.py` 查看当前日志及结果；`logs/gpu_telemetry_20261023.jsonl` 保存正式阶段资源采样。全量预测和指标仍需完成后核对，不将 smoke 分数当作完整验证结果。
+后续入口：`scripts/umpe_eval_pair.sh` 顺序评测官方 ft/base 权重；`scripts/runtime_status.py` 查看当前日志及结果；`logs/gpu_telemetry_20261023.jsonl` 保存正式阶段资源采样。全量预测和指标已核对完成；smoke 分数仅用于入口验收。正式 UMPE 两份权重在本轮采用独立进程并行评测，重跑入口采用顺序运行，每次日志保存在各自独立结果目录。

@@ -79,16 +79,67 @@
     }
   },
   "cpu_preparation": {
-    "phase": "topogpt_ready_umpe_continuing",
+    "phase": "complete",
     "time": "2026-10-23 01:56:10 +0800"
   },
   "gpu_smoke_passed": {
-    "topogpt": false,
-    "umpe": false
+    "topogpt": true,
+    "umpe": true
   },
   "free_GiB": {
-    "/root": 7.63,
-    "/root/autodl-tmp/manner-repro": 7.02
+    "/root": 3.47,
+    "/root/autodl-tmp/manner-repro": 5.08
   },
-  "formal_training_started": false
+  "formal_training_started": false,
+  "phase": "published_checkpoint_validation_complete",
+  "updated_at": "2026-10-23T19:00:28.821378+00:00",
+  "full_validation": {
+    "topogpt": {
+      "directory": "/root/autodl-tmp/manner-repro/results/topogpt/run_20261023T152334Z",
+      "frames": 4806,
+      "sha256": "95328564786fb40c78bfd685c83756989c7fbf2683b6b7748f95a734bd8fecda"
+    },
+    "umpe_finetuned": {
+      "directory": "/root/autodl-tmp/manner-repro/results/umpe/finetuned_20261023T154019Z",
+      "frames": 6019,
+      "sha256": "d7cf6ab93bab4539bdbc7db9372c6776788cbe8813d325f21a7dc0f100bd2e5a"
+    },
+    "umpe_base": {
+      "directory": "/root/autodl-tmp/manner-repro/results/umpe/base_parallel_20261023T155704Z",
+      "frames": 6019,
+      "sha256": "824779a51308a2177066685630f5a1f4ae15828104d0c55d956fd87aef2c0429"
+    }
+  },
+  "report": "/root/autodl-tmp/manner-repro/reports/reproduction_report.md",
+  "diagnostic_control": {
+    "directory": "/root/autodl-tmp/manner-repro/results/diagnostic/maptrv2_baseline_20261023T171236Z",
+    "metrics": {
+      "NuscMap_chamfer/divider_AP": 0.6134846111138662,
+      "NuscMap_chamfer/ped_crossing_AP": 0.6016266445318857,
+      "NuscMap_chamfer/boundary_AP": 0.6262752811113993,
+      "NuscMap_chamfer/mAP": 0.6137955122523837,
+      "NuscMap_chamfer/divider_AP_thr_0.5": 0.43664583563804626,
+      "NuscMap_chamfer/divider_AP_thr_1.0": 0.656211256980896,
+      "NuscMap_chamfer/divider_AP_thr_1.5": 0.7475967407226562,
+      "NuscMap_chamfer/ped_crossing_AP_thr_0.5": 0.3606888949871063,
+      "NuscMap_chamfer/ped_crossing_AP_thr_1.0": 0.6611078381538391,
+      "NuscMap_chamfer/ped_crossing_AP_thr_1.5": 0.7830832004547119,
+      "NuscMap_chamfer/boundary_AP_thr_0.5": 0.3608970046043396,
+      "NuscMap_chamfer/boundary_AP_thr_1.0": 0.7027523517608643,
+      "NuscMap_chamfer/boundary_AP_thr_1.5": 0.8151764869689941
+    },
+    "coverage": {
+      "kind": "umpe",
+      "prediction_file": "/root/autodl-tmp/manner-repro/results/diagnostic/maptrv2_baseline_20261023T171236Z/predictions.pkl",
+      "frames": 6019,
+      "full_validation_coverage": true,
+      "coverage_basis": "6019 outputs from official single-rank nonshuffling sampler in annotation order",
+      "all_numeric_outputs_finite": true,
+      "array_leaves_checked": 24076,
+      "sha256": "85be9d950f34533644ce763d57b0c303592c33eaa7385fbd4e653571a1c53ebd",
+      "bytes": 92747589
+    },
+    "reference_map": 61.4,
+    "purpose": "Official image-only MapTRv2 control for the UMPE accuracy gap"
+  }
 }

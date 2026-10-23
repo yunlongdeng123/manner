@@ -1,0 +1,22 @@
+{
+  "topogpt_val.pkl": {
+    "source": "/root/autodl-tmp/manner-repro/data/topogpt/openlane_subA/data_dict_subset_A_val.pkl",
+    "bytes": 339146908,
+    "sha256": "cf0dca78ad95af5956f621ebd9bdfbcfe65213a86621ed943373ceec0093f3a4"
+  },
+  "umpe_val.pkl": {
+    "source": "/root/autodl-tmp/manner-repro/data/nuscenes/nuscenes_map_infos_temporal_val.pkl",
+    "bytes": 68293215,
+    "sha256": "61197cc91fba930c7d2ed2e3009121add256bf629c274b09739145084aa02a7e"
+  },
+  "umpe_map_anns_val.json": {
+    "source": "/root/autodl-tmp/manner-repro/data/nuscenes/nuscenes_map_anns_val.json",
+    "bytes": 21459785,
+    "sha256": "878f7237ca2d39b680fce2b366ca9dc04988aa82b5c13f29f1b2ab02c2590b26"
+  },
+  "openlane_split.json": {
+    "source": "/root/autodl-tmp/manner-repro/data/openlanev2/data_dict_subset_A.json",
+    "bytes": 980014,
+    "sha256": "f1b8af7bfc45d43ac1d3186a164d09aacf6589c0d8de0c5f693457b0239dc94e"
+  }
+}

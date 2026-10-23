@@ -1,0 +1,32 @@
+{
+  "time": "2026-10-23T19:02:06.188742+00:00",
+  "runs": {
+    "topogpt": {
+      "frames": 4806,
+      "prediction_sha256": "95328564786fb40c78bfd685c83756989c7fbf2683b6b7748f95a734bd8fecda"
+    },
+    "umpe_finetuned": {
+      "frames": 6019,
+      "prediction_sha256": "d7cf6ab93bab4539bdbc7db9372c6776788cbe8813d325f21a7dc0f100bd2e5a"
+    },
+    "umpe_base": {
+      "frames": 6019,
+      "prediction_sha256": "824779a51308a2177066685630f5a1f4ae15828104d0c55d956fd87aef2c0429"
+    },
+    "maptrv2_control": {
+      "frames": 6019,
+      "prediction_sha256": "85be9d950f34533644ce763d57b0c303592c33eaa7385fbd4e653571a1c53ebd"
+    }
+  },
+  "source_commits_and_patches_unchanged": true,
+  "source_archives_verified": true,
+  "paper_headers_valid": true,
+  "topogpt_metric_log_warnings": {
+    "apls_error_messages": 0,
+    "mean_empty_slice_messages": 0,
+    "note": "Log message counts, not per-frame failure counts; official evaluator behavior preserved"
+  },
+  "report_sha256": "254f68b2298a5e6b32a599415428a18f6f4b2f905d59c1a723c8211c181a9e51",
+  "git_remote": null,
+  "backup_strategy": "Verified Git bundle and local clone; no remote configured"
+}

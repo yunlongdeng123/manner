@@ -1,0 +1,434 @@
+{
+  "completed_at": "2026-10-24T03:00:04.810973+08:00",
+  "scope": "Published checkpoint full validation, plus separately budgeted real-GPU engineering smokes; not from-scratch training reproduction",
+  "runs": {
+    "topogpt": {
+      "directory": "/root/autodl-tmp/manner-repro/results/topogpt/run_20261023T152334Z",
+      "metrics": {
+        "meta": {
+          "tasks": [
+            "pr",
+            "topo",
+            "graph"
+          ],
+          "gt_file_path": "/root/autodl-tmp/manner-repro/data/topogpt/openlane_subA/data_dict_subset_A_val.pkl",
+          "pred_file_path": "/root/autodl-tmp/manner-repro/results/topogpt/run_20261023T152334Z/predictions.pkl",
+          "dist_threshold": 0.5,
+          "score_threshold": 0,
+          "ret_metric": "PR"
+        },
+        "pr": {
+          "PR_1.0m": [
+            0.23072658479213715,
+            0.21614900967114944
+          ],
+          "PR_2.0m": [
+            0.49856361746788025,
+            0.46706379496218886
+          ],
+          "PR_3.0m": [
+            0.6366232633590698,
+            0.5964006641537941
+          ],
+          "PR_mean": [
+            0.45530448853969574,
+            0.4265378229290442
+          ]
+        },
+        "topo": {
+          "Topo mAP": 0.24371183659754428,
+          "details": {
+            "1.0": {
+              "mean_acc": 0.09122798504185815
+            },
+            "2.0": {
+              "mean_acc": 0.2693720157535084
+            },
+            "3.0": {
+              "mean_acc": 0.37053550899726617
+            }
+          }
+        },
+        "graph": {
+          "Graph IoU": 0.541639726953692,
+          "APLS": 0.28819621479349783,
+          "GEO Precision": 0.6147626228316796,
+          "GEO Recall": 0.5933838938734389,
+          "GEO F1": 0.6012454463566521,
+          "TOPO Precision": 0.48665881058156607,
+          "TOPO Recall": 0.46350525787528024,
+          "TOPO F1": 0.47251168049302306,
+          "JTOPO F1": 0.3549471013239108,
+          "SDA": 0.2710803132010182
+        }
+      },
+      "coverage": {
+        "kind": "topogpt",
+        "prediction_file": "/root/autodl-tmp/manner-repro/results/topogpt/run_20261023T152334Z/predictions.pkl",
+        "frames": 4806,
+        "full_validation_coverage": true,
+        "coverage_basis": "Exact equality of all official frame keys",
+        "all_numeric_outputs_finite": true,
+        "array_leaves_checked": 123856,
+        "sha256": "95328564786fb40c78bfd685c83756989c7fbf2683b6b7748f95a734bd8fecda",
+        "bytes": 52468117,
+        "no_eos_frames": [
+          [
+            "val",
+            "10022",
+            "315969724249927219"
+          ],
+          [
+            "val",
+            "10022",
+            "315969725249927218"
+          ],
+          [
+            "val",
+            "10022",
+            "315969727749927213"
+          ],
+          [
+            "val",
+            "10022",
+            "315969733249927219"
+          ],
+          [
+            "val",
+            "10022",
+            "315969737749927221"
+          ],
+          [
+            "val",
+            "10022",
+            "315969738249927219"
+          ],
+          [
+            "val",
+            "10022",
+            "315969739249927215"
+          ],
+          [
+            "val",
+            "10022",
+            "315969740249927217"
+          ],
+          [
+            "val",
+            "10028",
+            "315975020849927221"
+          ],
+          [
+            "val",
+            "10043",
+            "315968854049927216"
+          ],
+          [
+            "val",
+            "10089",
+            "315969340649927217"
+          ],
+          [
+            "val",
+            "10104",
+            "315971067249927213"
+          ],
+          [
+            "val",
+            "10104",
+            "315971067749927211"
+          ],
+          [
+            "val",
+            "10117",
+            "315971490249927213"
+          ],
+          [
+            "val",
+            "10127",
+            "315976266149927219"
+          ],
+          [
+            "val",
+            "10144",
+            "315968022649927218"
+          ]
+        ],
+        "empty_lane_frames": []
+      }
+    },
+    "umpe_finetuned": {
+      "directory": "/root/autodl-tmp/manner-repro/results/umpe/finetuned_20261023T154019Z",
+      "metrics": {
+        "NuscMap_chamfer/divider_AP": 0.4327143430709839,
+        "NuscMap_chamfer/ped_crossing_AP": 0.5247045954068502,
+        "NuscMap_chamfer/boundary_AP": 0.7069438298543295,
+        "NuscMap_chamfer/mAP": 0.5547875894440545,
+        "NuscMap_chamfer/divider_AP_thr_0.5": 0.29670262336730957,
+        "NuscMap_chamfer/divider_AP_thr_1.0": 0.4625004529953003,
+        "NuscMap_chamfer/divider_AP_thr_1.5": 0.5389399528503418,
+        "NuscMap_chamfer/ped_crossing_AP_thr_0.5": 0.31767529249191284,
+        "NuscMap_chamfer/ped_crossing_AP_thr_1.0": 0.5814703702926636,
+        "NuscMap_chamfer/ped_crossing_AP_thr_1.5": 0.6749681234359741,
+        "NuscMap_chamfer/boundary_AP_thr_0.5": 0.43472588062286377,
+        "NuscMap_chamfer/boundary_AP_thr_1.0": 0.7959515452384949,
+        "NuscMap_chamfer/boundary_AP_thr_1.5": 0.8901540637016296
+      },
+      "coverage": {
+        "kind": "umpe",
+        "prediction_file": "/root/autodl-tmp/manner-repro/results/umpe/finetuned_20261023T154019Z/predictions.pkl",
+        "frames": 6019,
+        "full_validation_coverage": true,
+        "coverage_basis": "6019 outputs from official single-rank nonshuffling sampler in annotation order",
+        "all_numeric_outputs_finite": true,
+        "array_leaves_checked": 24076,
+        "sha256": "d7cf6ab93bab4539bdbc7db9372c6776788cbe8813d325f21a7dc0f100bd2e5a",
+        "bytes": 92218470
+      }
+    },
+    "umpe_base": {
+      "directory": "/root/autodl-tmp/manner-repro/results/umpe/base_parallel_20261023T155704Z",
+      "metrics": {
+        "NuscMap_chamfer/divider_AP": 0.39970818161964417,
+        "NuscMap_chamfer/ped_crossing_AP": 0.4883926510810852,
+        "NuscMap_chamfer/boundary_AP": 0.703577975432078,
+        "NuscMap_chamfer/mAP": 0.5305596027109357,
+        "NuscMap_chamfer/divider_AP_thr_0.5": 0.26267361640930176,
+        "NuscMap_chamfer/divider_AP_thr_1.0": 0.42819944024086,
+        "NuscMap_chamfer/divider_AP_thr_1.5": 0.5082514882087708,
+        "NuscMap_chamfer/ped_crossing_AP_thr_0.5": 0.28695929050445557,
+        "NuscMap_chamfer/ped_crossing_AP_thr_1.0": 0.5380154848098755,
+        "NuscMap_chamfer/ped_crossing_AP_thr_1.5": 0.6402031779289246,
+        "NuscMap_chamfer/boundary_AP_thr_0.5": 0.4277305006980896,
+        "NuscMap_chamfer/boundary_AP_thr_1.0": 0.7902169227600098,
+        "NuscMap_chamfer/boundary_AP_thr_1.5": 0.8927865028381348
+      },
+      "coverage": {
+        "kind": "umpe",
+        "prediction_file": "/root/autodl-tmp/manner-repro/results/umpe/base_parallel_20261023T155704Z/predictions.pkl",
+        "frames": 6019,
+        "full_validation_coverage": true,
+        "coverage_basis": "6019 outputs from official single-rank nonshuffling sampler in annotation order",
+        "all_numeric_outputs_finite": true,
+        "array_leaves_checked": 24076,
+        "sha256": "824779a51308a2177066685630f5a1f4ae15828104d0c55d956fd87aef2c0429",
+        "bytes": 92153304
+      }
+    }
+  },
+  "diagnostic_control": {
+    "directory": "/root/autodl-tmp/manner-repro/results/diagnostic/maptrv2_baseline_20261023T171236Z",
+    "metrics": {
+      "NuscMap_chamfer/divider_AP": 0.6134846111138662,
+      "NuscMap_chamfer/ped_crossing_AP": 0.6016266445318857,
+      "NuscMap_chamfer/boundary_AP": 0.6262752811113993,
+      "NuscMap_chamfer/mAP": 0.6137955122523837,
+      "NuscMap_chamfer/divider_AP_thr_0.5": 0.43664583563804626,
+      "NuscMap_chamfer/divider_AP_thr_1.0": 0.656211256980896,
+      "NuscMap_chamfer/divider_AP_thr_1.5": 0.7475967407226562,
+      "NuscMap_chamfer/ped_crossing_AP_thr_0.5": 0.3606888949871063,
+      "NuscMap_chamfer/ped_crossing_AP_thr_1.0": 0.6611078381538391,
+      "NuscMap_chamfer/ped_crossing_AP_thr_1.5": 0.7830832004547119,
+      "NuscMap_chamfer/boundary_AP_thr_0.5": 0.3608970046043396,
+      "NuscMap_chamfer/boundary_AP_thr_1.0": 0.7027523517608643,
+      "NuscMap_chamfer/boundary_AP_thr_1.5": 0.8151764869689941
+    },
+    "coverage": {
+      "kind": "umpe",
+      "prediction_file": "/root/autodl-tmp/manner-repro/results/diagnostic/maptrv2_baseline_20261023T171236Z/predictions.pkl",
+      "frames": 6019,
+      "full_validation_coverage": true,
+      "coverage_basis": "6019 outputs from official single-rank nonshuffling sampler in annotation order",
+      "all_numeric_outputs_finite": true,
+      "array_leaves_checked": 24076,
+      "sha256": "85be9d950f34533644ce763d57b0c303592c33eaa7385fbd4e653571a1c53ebd",
+      "bytes": 92747589
+    },
+    "reference_map": 61.4,
+    "purpose": "Official image-only MapTRv2 control for the UMPE accuracy gap"
+  },
+  "smokes": {
+    "topogpt": {
+      "train": {
+        "phase": "train",
+        "start_step": 0,
+        "end_step": 440,
+        "backward_steps": 440,
+        "seconds": 483.136216558516,
+        "loss_first": 1.356031894683838,
+        "loss_last": 0.8918932676315308,
+        "all_losses_finite": true,
+        "peak_allocated_bytes": 11256036352,
+        "peak_reserved_bytes": 12912164864,
+        "device": "NVIDIA GeForce RTX 3090"
+      },
+      "resume": {
+        "phase": "resumed",
+        "start_step": 440,
+        "end_step": 443,
+        "backward_steps": 3,
+        "seconds": 5.86200388520956,
+        "loss_first": 1.4316688776016235,
+        "loss_last": 2.0606911182403564,
+        "all_losses_finite": true,
+        "peak_allocated_bytes": 11253698560,
+        "peak_reserved_bytes": 12916359168,
+        "device": "NVIDIA GeForce RTX 3090"
+      },
+      "restored": {
+        "global_step": 440,
+        "model": true,
+        "optimizer": true,
+        "scheduler": true,
+        "rng": true,
+        "scope": "Saved state restored; bitwise data-order replay not asserted"
+      },
+      "evaluation_frames": 8,
+      "metrics_path": "/root/manner-repro-smoke/topogpt_20261023T151050Z/metrics.json",
+      "directory": "/root/manner-repro-smoke/topogpt_20261023T151050Z",
+      "formal_evaluation_completed": false
+    },
+    "umpe": {
+      "train": {
+        "phase": "train",
+        "start_iter": 0,
+        "end_iter": 320,
+        "start_epoch": 0,
+        "end_epoch": 8,
+        "backward_steps": 320,
+        "seconds": 503.06367675215006,
+        "all_losses_finite": true,
+        "loss_first": 23.932527542114258,
+        "loss_last": 11.11272144317627,
+        "peak_allocated_bytes": 6801055232,
+        "peak_reserved_bytes": 7587495936,
+        "device": "NVIDIA GeForce RTX 3090"
+      },
+      "resumed": {
+        "phase": "resumed",
+        "start_iter": 320,
+        "end_iter": 360,
+        "start_epoch": 8,
+        "end_epoch": 9,
+        "backward_steps": 40,
+        "seconds": 60.87853632122278,
+        "all_losses_finite": true,
+        "loss_first": 10.605215072631836,
+        "loss_last": 27.59662437438965,
+        "peak_allocated_bytes": 6790206464,
+        "peak_reserved_bytes": 7797211136,
+        "device": "NVIDIA GeForce RTX 3090"
+      },
+      "restore": {
+        "iter": 320,
+        "epoch": 8,
+        "model": true,
+        "optimizer": true,
+        "lr_and_schedule": "First resumed step matches next-step cosine/warmup LR saved by previous process",
+        "fp16_scaler": true,
+        "rng": true,
+        "scope": "Epoch-boundary state restore; bitwise cross-process trajectory not asserted",
+        "next_lr": true,
+        "next_lr_min": 0.0,
+        "next_lr_max": 0.000221131833810824
+      },
+      "evaluation_frames": 8,
+      "directory": "/root/autodl-tmp/manner-repro/results/smoke/umpe_recovery_20261023T153416Z",
+      "metrics": {
+        "NuscMap_chamfer/divider_AP": 1.0,
+        "NuscMap_chamfer/ped_crossing_AP": 0.0,
+        "NuscMap_chamfer/boundary_AP": 0.7412211696306864,
+        "NuscMap_chamfer/mAP": 0.5804070565435621,
+        "NuscMap_chamfer/divider_AP_thr_0.5": 1.0,
+        "NuscMap_chamfer/divider_AP_thr_1.0": 1.0,
+        "NuscMap_chamfer/divider_AP_thr_1.5": 1.0,
+        "NuscMap_chamfer/ped_crossing_AP_thr_0.5": 0.0,
+        "NuscMap_chamfer/ped_crossing_AP_thr_1.0": 0.0,
+        "NuscMap_chamfer/ped_crossing_AP_thr_1.5": 0.0,
+        "NuscMap_chamfer/boundary_AP_thr_0.5": 0.39611971378326416,
+        "NuscMap_chamfer/boundary_AP_thr_1.0": 0.8275438547134399,
+        "NuscMap_chamfer/boundary_AP_thr_1.5": 0.9999999403953552
+      },
+      "formal_evaluation_completed": false
+    }
+  },
+  "topogpt_comparison": [
+    [
+      "M-P",
+      45.530448853969574,
+      45.6
+    ],
+    [
+      "M-R",
+      42.65378229290442,
+      42.6
+    ],
+    [
+      "M-T",
+      24.37118365975443,
+      24.4
+    ],
+    [
+      "G-IoU",
+      54.1639726953692,
+      54.4
+    ],
+    [
+      "SDA",
+      27.108031320101823,
+      26.9
+    ],
+    [
+      "G-F1",
+      60.12454463566521,
+      60.3
+    ],
+    [
+      "T-F1",
+      47.25116804930231,
+      47.4
+    ],
+    [
+      "JT-F1",
+      35.49471013239108,
+      35.7
+    ],
+    [
+      "APLS",
+      28.819621479349784,
+      28.7
+    ]
+  ],
+  "umpe_comparison": [
+    [
+      "人行横道",
+      48.83926510810852,
+      52.47045954068502,
+      66.6
+    ],
+    [
+      "分隔线",
+      39.97081816196442,
+      43.27143430709839,
+      67.2
+    ],
+    [
+      "道路边界",
+      70.3577975432078,
+      70.69438298543295,
+      68.2
+    ],
+    [
+      "mAP",
+      53.055960271093575,
+      55.47875894440545,
+      67.4
+    ]
+  ],
+  "git_commit_before_report": "1336e448ffbeba3c8aa717faa123e9e7bd3f20df",
+  "topogpt_metric_log_warnings": {
+    "apls_error_messages": 0,
+    "mean_empty_slice_messages": 0,
+    "note": "Log message counts, not counts of affected frames; official metric implementation unchanged"
+  }
+}
