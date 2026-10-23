@@ -1,0 +1,33 @@
+{
+  "remote": "/root/manner-repro-score-cache-archive/umpe_completed_scoring_20261024.tgz",
+  "output": "C:\\Users\\dengyunlong\\Desktop\\\u5de5\u4f5c\u6587\u4ef6\u6574\u7406\\nio\\MANNER_TopoGPT_UMPE_\u590d\u73b0\u7ed3\u679c_20261024\\scoring_caches\\umpe_completed_scoring_20261024.tgz",
+  "bytes": 1453284731,
+  "sha256": "51afd4120d75c3f942ce12978d338031a390d57e5d7efe76424ce73938f26f05",
+  "prefix_bytes": 150896640,
+  "prefix_file": "C:\\Users\\dengyunlong\\Desktop\\\u5de5\u4f5c\u6587\u4ef6\u6574\u7406\\nio\\MANNER_TopoGPT_UMPE_\u590d\u73b0\u7ed3\u679c_20261024\\scoring_caches\\umpe_completed_scoring_20261024.tgz.prefix.part",
+  "chunks": [
+    {
+      "start": 150896640,
+      "end": 476493663,
+      "file": "C:\\Users\\dengyunlong\\Desktop\\\u5de5\u4f5c\u6587\u4ef6\u6574\u7406\\nio\\MANNER_TopoGPT_UMPE_\u590d\u73b0\u7ed3\u679c_20261024\\scoring_caches\\umpe_completed_scoring_20261024.tgz.chunk0.part"
+    },
+    {
+      "start": 476493663,
+      "end": 802090686,
+      "file": "C:\\Users\\dengyunlong\\Desktop\\\u5de5\u4f5c\u6587\u4ef6\u6574\u7406\\nio\\MANNER_TopoGPT_UMPE_\u590d\u73b0\u7ed3\u679c_20261024\\scoring_caches\\umpe_completed_scoring_20261024.tgz.chunk1.part"
+    },
+    {
+      "start": 802090686,
+      "end": 1127687709,
+      "file": "C:\\Users\\dengyunlong\\Desktop\\\u5de5\u4f5c\u6587\u4ef6\u6574\u7406\\nio\\MANNER_TopoGPT_UMPE_\u590d\u73b0\u7ed3\u679c_20261024\\scoring_caches\\umpe_completed_scoring_20261024.tgz.chunk2.part"
+    },
+    {
+      "start": 1127687709,
+      "end": 1453284731,
+      "file": "C:\\Users\\dengyunlong\\Desktop\\\u5de5\u4f5c\u6587\u4ef6\u6574\u7406\\nio\\MANNER_TopoGPT_UMPE_\u590d\u73b0\u7ed3\u679c_20261024\\scoring_caches\\umpe_completed_scoring_20261024.tgz.chunk3.part"
+    }
+  ],
+  "verified": true,
+  "seconds": 382.375,
+  "average_MiB_s": 3.248261712664442
+}

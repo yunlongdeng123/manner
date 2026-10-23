@@ -29,5 +29,8 @@
   "seconds": 89.78562754392624,
   "all_member_hashes_verified": true,
   "original_predictions_metrics_checkpoints_logs_untouched": true,
-  "rebuild": "scripts/score_umpe_predictions.py can rebuild caches from predictions and ground truth"
+  "rebuild": "scripts/score_umpe_predictions.py can rebuild caches from predictions and ground truth",
+  "local_verified_archive": "C:\\Users\\dengyunlong\\Desktop\\\u5de5\u4f5c\u6587\u4ef6\u6574\u7406\\nio\\MANNER_TopoGPT_UMPE_\u590d\u73b0\u7ed3\u679c_20261024\\scoring_caches\\umpe_completed_scoring_20261024.tgz",
+  "remote_archive_retained": false,
+  "remote_archive_released_at": "2026-10-23T17:42:10.869854+00:00"
 }
