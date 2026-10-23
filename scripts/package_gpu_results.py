@@ -18,6 +18,7 @@ archive=D/('repro-results_'+head[:12]+'.tgz')
 def keep(info):
     parts=pathlib.PurePosixPath(info.name).parts
     if '__pycache__' in parts or info.name.endswith(('.pth','.ckpt','.pyc')):return None
+    if info.name.startswith('source_artifacts/') and info.name.endswith('.tgz'):return None
     if info.issym() or info.islnk():return None
     return info
 with tarfile.open(archive,'w:gz',compresslevel=3) as t:
@@ -34,5 +35,8 @@ def sha(path):
         for b in iter(lambda:f.read(8*1024*1024),b''):h.update(b)
     return h.hexdigest()
 record=dict(commit=head,files={p.name:dict(bytes=p.stat().st_size,sha256=sha(p)) for p in [bundle,archive]},scope='Reports, complete validation predictions/metrics/annotations, logs, scripts, exact source archives/patches and papers. Raw images, raw priors, model/checkpoint weights and Python environments remain on remote.')
+for entry in json.loads((R/'manifests/source_archives.json').read_text()).values():
+    p=pathlib.Path(entry['archive'])
+    record['files']['source_artifacts/'+p.name]=dict(bytes=p.stat().st_size,sha256=entry['sha256'],remote_path=str(p),prestaged=True)
 (D/'delivery_manifest.json').write_text(json.dumps(record,indent=2))
 print(json.dumps(record,indent=2))

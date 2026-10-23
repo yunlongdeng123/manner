@@ -61,20 +61,28 @@ fig.savefig(out/'topogpt_examples.png',dpi=170);fig.savefig(out/'topogpt_example
 del pred,gt
 pred=read(up);infos=sorted(read(ug)['infos'],key=lambda x:x['timestamp'])
 assert len(pred)==len(infos)
+control=None if a.smoke else read(pathlib.Path(summary['diagnostic_control']['directory'])/'predictions.pkl')
+if control is not None:assert len(control)==len(infos)
 indices=np.linspace(0,len(infos)-1,6,dtype=int).tolist()
 colors=['#2563eb','#dc2626','#16803c'];classes=['divider','ped_crossing','boundary']
-fig,axes=plt.subplots(2,6,figsize=(16,11),constrained_layout=True)
+fig,axes=plt.subplots(2 if a.smoke else 3,6,figsize=(16,11) if a.smoke else (18,15),constrained_layout=True)
 for n,idx in enumerate(indices):
-    left,right=axes[n//3,(n%3)*2:(n%3)*2+2]
+    if a.smoke:
+        left,right=axes[n//3,(n%3)*2:(n%3)*2+2]
+        targets=[(right,pred[idx],'UMPE ft')]
+    else:
+        left,middle,right=axes[n//2,(n%2)*3:(n%2)*3+3]
+        targets=[(middle,control[idx],'MapTRv2 control'),(right,pred[idx],'UMPE ft')]
     info=infos[idx]
     for cls,color in zip(classes,colors):
         for pts in info['annotation'][cls]:line(left,pts,color)
-    p=pred[idx]['pts_bbox']
-    for pts,score,label in zip(p['pts_3d'],p['scores_3d'],p['labels_3d']):
-        if float(score)>=.3:line(right,pts.cpu().numpy(),colors[int(label)])
+    for axis,output,title in targets:
+        p=output['pts_bbox']
+        for pts,score,label in zip(p['pts_3d'],p['scores_3d'],p['labels_3d']):
+            if float(score)>=.3:line(axis,pts.cpu().numpy(),colors[int(label)])
+        style(axis,(-15,15),(-30,30),title)
     style(left,(-15,15),(-30,30),'GT '+info['token'][:7])
-    style(right,(-15,15),(-30,30),'UMPE ft')
-fig.suptitle('UMPE: ground truth and published finetuned checkpoint\nDisplay score >= 0.3 only; all scores are retained for official evaluation; black triangle: ego origin',fontsize=13)
+fig.suptitle(('UMPE: ground truth and published finetuned checkpoint' if a.smoke else 'Same frames: ground truth, official MapTRv2 control and UMPE finetuned checkpoint')+'\nDisplay score >= 0.3 only; all scores are retained for official evaluation; black triangle: ego origin',fontsize=13)
 fig.legend([Line2D([0],[0],color=c) for c in colors],classes,loc='outside lower center',ncol=3) if tuple(int(x) for x in matplotlib.__version__.split('.')[:2])>=(3,7) else fig.legend([Line2D([0],[0],color=c) for c in colors],classes,loc='lower center',ncol=3)
 fig.savefig(out/'umpe_examples.png',dpi=170);fig.savefig(out/'umpe_examples.svg');plt.close(fig)
 (out/'selection.json').write_text(json.dumps(dict(smoke=a.smoke,topogpt_frames=keys,topogpt_selection='Seed 3407 samples segments, first timestamp per segment; last replaced by first no-EOS frame if present',umpe_indices=indices,umpe_tokens=[infos[i]['token'] for i in indices],umpe_display_score_threshold=.3,official_metrics_unchanged=True),indent=2))

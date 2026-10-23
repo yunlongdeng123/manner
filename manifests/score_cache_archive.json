@@ -1,0 +1,33 @@
+{
+  "time": "2026-10-23T17:31:06.093054+00:00",
+  "archive": "/root/manner-repro-score-cache-archive/umpe_completed_scoring_20261024.tgz",
+  "archive_bytes": 1453284731,
+  "sha256": "51afd4120d75c3f942ce12978d338031a390d57e5d7efe76424ce73938f26f05",
+  "files": {
+    "Sat_Oct_24_00_39_04_2026/pts_bbox/cls_formatted.pkl": {
+      "original": "/root/autodl-tmp/manner-repro/repos/UMPE/Maptrv2/test/umpe_reproduce_cached/Sat_Oct_24_00_39_04_2026/pts_bbox/cls_formatted.pkl",
+      "bytes": 827869704,
+      "sha256": "37fed6fdb72530d9db15608bca61b1d70f49682db7a11395f75563d54aa35a35"
+    },
+    "Sat_Oct_24_00_39_04_2026/pts_bbox/nuscmap_results.json": {
+      "original": "/root/autodl-tmp/manner-repro/repos/UMPE/Maptrv2/test/umpe_reproduce_cached/Sat_Oct_24_00_39_04_2026/pts_bbox/nuscmap_results.json",
+      "bytes": 283573700,
+      "sha256": "1c792d78f95bb7b686b2e519b0b181f4d61a58c4c7627ebace3724bc29869cec"
+    },
+    "Sat_Oct_24_00_57_44_2026/pts_bbox/cls_formatted.pkl": {
+      "original": "/root/autodl-tmp/manner-repro/repos/UMPE/Maptrv2/test/umpe_reproduce_cached/Sat_Oct_24_00_57_44_2026/pts_bbox/cls_formatted.pkl",
+      "bytes": 827436394,
+      "sha256": "23f2a5a20bbf32181694781b2d19e7991a1cd6e46b34dbb99fbd53955138967c"
+    },
+    "Sat_Oct_24_00_57_44_2026/pts_bbox/nuscmap_results.json": {
+      "original": "/root/autodl-tmp/manner-repro/repos/UMPE/Maptrv2/test/umpe_reproduce_cached/Sat_Oct_24_00_57_44_2026/pts_bbox/nuscmap_results.json",
+      "bytes": 283511303,
+      "sha256": "390e73f9853e7b0d5303c503d892edd9f0913fcc232223fbc8c09c0caddde601"
+    }
+  },
+  "released_data_disk_bytes": 2222391101,
+  "seconds": 89.78562754392624,
+  "all_member_hashes_verified": true,
+  "original_predictions_metrics_checkpoints_logs_untouched": true,
+  "rebuild": "scripts/score_umpe_predictions.py can rebuild caches from predictions and ground truth"
+}

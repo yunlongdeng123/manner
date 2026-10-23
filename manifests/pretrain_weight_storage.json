@@ -1,0 +1,9 @@
+{
+  "time": "2026-10-23T17:31:49.079531+00:00",
+  "logical_path": "/root/autodl-tmp/manner-repro/weights/topogpt/pretrain.ckpt",
+  "physical_path": "/root/manner-repro-weight-store/topogpt/pretrain.ckpt",
+  "bytes": 1257462106,
+  "sha256": "1c340ff9077d5449106689488042b04191e2f7844c2f7af1f9807e85f270be37",
+  "both_source_and_destination_verified": true,
+  "active_finetune_weight_untouched": true
+}

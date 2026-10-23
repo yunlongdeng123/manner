@@ -80,6 +80,7 @@ f"| 训练 smoke | {smokes['topogpt']['train']['end_step']} 步 / {smokes['topog
 '- UMPE 微调/基础权重进入 CPU 评分后，分别将进程及子进程限制在 8/12 个逻辑核，给仍在 GPU 推理的任务保留 CPU 配额。保留官方 worker 数、计算函数与样本顺序；CPU 亲和性记录见 `manifests/umpe_*_metric_cpu_affinity.json`。',
 '- TopoGPT 在 8 个真实样本上的额外诊断显示，教师强制损失约占计算时间 14%；本轮保留原始验证入口。该测量与 CPU 线程对比均为额外工程开销，未计入正式指标样本。',
 '- `scripts/score_umpe_predictions.py` 直接调用官方格式化与评分函数，读取保存的预测、帧元数据和真值。8 帧 CPU 回放全部指标与原官方输出完全一致，未初始化 CUDA、加载模型、图像或先验。',
+'- 数据盘空间回收：两份 UMPE 评分中间文件逐文件 SHA-256 核验后压缩归档，原始预测和指标保持不变。TopoGPT 预训练权重迁到系统盘，原路径用符号链接保留，迁移前后哈希一致；正在评价的 finetune 权重未移动。详见 `manifests/score_cache_archive.json` 与 `manifests/pretrain_weight_storage.json`。',
 '', '## 重新运行','',
 '```bash','cd /root/autodl-tmp/manner-repro','bash scripts/topogpt_eval.sh','bash scripts/umpe_eval_pair.sh','/root/miniconda3/bin/python scripts/runtime_status.py','```','',
 '环境分别为 `topogpt`（Python 3.10 / torch 2.1.0+cu118）和 `umpe`（Python 3.8 / torch 1.9.1+cu111 / MMCV 1.4.0）。入口脚本自动选择环境与权重，重复运行使用独立结果目录。','',
@@ -90,6 +91,6 @@ md += ['', '后续需要独立准备/预算的项目：全量重新训练、Topo
 md += ['## 定性核对','',
 'TopoGPT 固定随机种子选场景、每场景取首帧；若存在未生成 EOS 的帧，最后一例展示其中一帧。UMPE 在完整验证序列上等间隔取 6 帧，仅为显示清晰采用 0.3 分数阈值；正式指标保留全部预测。精确帧键及选择规则在 `figures/selection.json`，这些例子不替代总体统计。','',
 '![TopoGPT 真值与预测](figures/topogpt_examples.png)','',
-'![UMPE 真值与预测](figures/umpe_examples.png)','']
+'![相同样本的真值、MapTRv2 对照与 UMPE 微调预测](figures/umpe_examples.png)','']
 (report/'reproduction_report.md').write_text('\n'.join(md),encoding='utf-8')
 print(json.dumps(dict(report=str(report/'reproduction_report.md'),results=str(report/'results.json')),ensure_ascii=False))
