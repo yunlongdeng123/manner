@@ -1,0 +1,8 @@
+{
+  "time": "2026-10-23T18:41:00.502148+00:00",
+  "session_id": "connect.nmb2.seetacloud.com-1792685798-e833b66c",
+  "target": "root@connect.nmb2.seetacloud.com:25913",
+  "remote_proxy": "http://127.0.0.1:39287",
+  "action": "Disconnected only this task reverse-proxy session after all downloads finished",
+  "remaining_dependencies": "Direct SSH remains available for CPU evaluation, result retrieval and shutdown"
+}
