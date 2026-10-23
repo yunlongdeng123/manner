@@ -1,0 +1,68 @@
+{
+  "topogpt": {
+    "pid": 4648,
+    "command": [
+      "python",
+      "MapPrior/scripts/train.py",
+      "tags=[ar,predict,reproduction]",
+      "exp_name=reproduce_subset_A",
+      "model=finetune",
+      "data=finetune_subA",
+      "train=False",
+      "+val=True",
+      "ckpt_path=/root/autodl-tmp/manner-repro/weights/topogpt/finetune.ckpt",
+      "model.sample_cfg.save_pred_path=/root/autodl-tmp/manner-repro/results/topogpt/run_20261023T152334Z/predictions.pkl",
+      "paths.data_dir=/root/autodl-tmp/manner-repro/data/topogpt",
+      "paths.log_dir=/root/autodl-tmp/manner-repro/results/topogpt/run_20261023T152334Z/logs",
+      "data.num_workers=4",
+      "data.batch_size=1",
+      "trainer.devices=1",
+      "model.eval_cfg.eval_seq_decode=True",
+      ""
+    ],
+    "predictions": "/root/autodl-tmp/manner-repro/results/topogpt/run_20261023T152334Z/predictions.pkl"
+  },
+  "umpe_finetuned": {
+    "pid": 7933,
+    "command": [
+      "/root/miniconda3/envs/umpe/bin/python3",
+      "-u",
+      "tools/test.py",
+      "--local_rank=0",
+      "/root/autodl-tmp/manner-repro/configs/umpe_reproduce_cached.py",
+      "/root/autodl-tmp/manner-repro/weights/umpe/maptrv2_umpe_ft.pth",
+      "--launcher",
+      "pytorch",
+      "--out",
+      "/root/autodl-tmp/manner-repro/results/umpe/finetuned_20261023T154019Z/predictions.pkl",
+      "--cfg-options",
+      "data.workers_per_gpu=0",
+      "--eval",
+      "chamfer",
+      ""
+    ],
+    "predictions": "/root/autodl-tmp/manner-repro/results/umpe/finetuned_20261023T154019Z/predictions.pkl"
+  },
+  "umpe_base": {
+    "pid": 9061,
+    "command": [
+      "/root/miniconda3/envs/umpe/bin/python3",
+      "-u",
+      "tools/test.py",
+      "--local_rank=0",
+      "/root/autodl-tmp/manner-repro/configs/umpe_reproduce_cached.py",
+      "/root/autodl-tmp/manner-repro/weights/umpe/maptrv2_umpe.pth",
+      "--launcher",
+      "pytorch",
+      "--out",
+      "/root/autodl-tmp/manner-repro/results/umpe/base_parallel_20261023T155704Z/predictions.pkl",
+      "--cfg-options",
+      "data.workers_per_gpu=0",
+      "--eval",
+      "chamfer",
+      ""
+    ],
+    "predictions": "/root/autodl-tmp/manner-repro/results/umpe/base_parallel_20261023T155704Z/predictions.pkl"
+  },
+  "recorded_at": "2026-10-24T00:03:50.304030+08:00"
+}

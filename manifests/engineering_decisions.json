@@ -1,0 +1,17 @@
+{
+  "time": "2026-10-23T16:29:52.377752+00:00",
+  "opencv": {
+    "tested_frames": 8,
+    "inputs_bitwise_equal": true,
+    "lossless_pipeline_time_reduction_percent": 27.7,
+    "applied_to_live_evaluation": false,
+    "reason": "Existing full-validation progress outweighs expected replay savings"
+  },
+  "topogpt_profiling": {
+    "tested_frames": 8,
+    "loss_fraction": 0.13871108682115538,
+    "formal_entry_unchanged": true,
+    "reason": "Autoregressive decoding remains dominant; preserve completed work"
+  },
+  "diagnostics_budget": "CPU pipeline timing plus one eight-frame GPU profiling pass, separate from official full validation; first profile attempt failed before loading weights due to Path/mmap API compatibility"
+}

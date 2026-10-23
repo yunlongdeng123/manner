@@ -1,0 +1,25 @@
+{
+  "time": "2026-10-23T16:21:47.711261+00:00",
+  "weights": {
+    "topogpt/pretrain.ckpt": {
+      "bytes": 1257462106,
+      "sha256": "1c340ff9077d5449106689488042b04191e2f7844c2f7af1f9807e85f270be37",
+      "unchanged": true
+    },
+    "topogpt/finetune.ckpt": {
+      "bytes": 1596822246,
+      "sha256": "43cc8e36383793820f3d51ca8d2a244860fb6cb165d88909ab91c8b61345561a",
+      "unchanged": true
+    },
+    "umpe/maptrv2_umpe.pth": {
+      "bytes": 664671899,
+      "sha256": "4c4cd40c262ae399595cabe71cf4846e312dd17bb5a78be17cb11ad2fa51d162",
+      "unchanged": true
+    },
+    "umpe/maptrv2_umpe_ft.pth": {
+      "bytes": 664671899,
+      "sha256": "f934971dcae0ddb3397c08dca1d1503cc7d936606f5b1126e2b4d2a40238ae4f",
+      "unchanged": true
+    }
+  }
+}

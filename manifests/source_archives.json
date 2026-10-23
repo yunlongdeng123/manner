@@ -1,0 +1,29 @@
+{
+  "TopoGPT": {
+    "commit": "6a96f542e3ee4a7535fa3e54e39a52812e74bbcf",
+    "archive": "/root/autodl-tmp/manner-repro/source_artifacts/TopoGPT_6a96f542e3ee.tgz",
+    "bytes": 135156,
+    "sha256": "0f039623f944784e9bd225920733f28349300c383f0a29a0e3400b3b454f2dad",
+    "patch": "/root/autodl-tmp/manner-repro/source_artifacts/TopoGPT_local.patch",
+    "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "patch_bytes": 0
+  },
+  "UMPE": {
+    "commit": "66164113780fdc5a73e78c26c8ec234154e123e1",
+    "archive": "/root/autodl-tmp/manner-repro/source_artifacts/UMPE_66164113780f.tgz",
+    "bytes": 298615232,
+    "sha256": "69fcebcfbf44f71e1e4441577e97fc2733ef3eca3bb24d966c676da0ed7b8ea5",
+    "patch": "/root/autodl-tmp/manner-repro/source_artifacts/UMPE_local.patch",
+    "patch_sha256": "198507b4b101235e1475ec8a6179f1674ccd1ed2e8b5d87b1dcc09a777e25d87",
+    "patch_bytes": 2111
+  },
+  "OpenLane-V2": {
+    "commit": "4bff01854622e004a9a6513240ce6539351b636d",
+    "archive": "/root/autodl-tmp/manner-repro/source_artifacts/OpenLane-V2_4bff01854622.tgz",
+    "bytes": 10273604,
+    "sha256": "cb59e1f08d66c3ac0421966076628d76a95f6425b99c4b3301edd708dbfd8f0b",
+    "patch": "/root/autodl-tmp/manner-repro/source_artifacts/OpenLane-V2_local.patch",
+    "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "patch_bytes": 0
+  }
+}

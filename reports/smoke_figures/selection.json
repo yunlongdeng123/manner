@@ -1,0 +1,54 @@
+{
+  "smoke": true,
+  "topogpt_frames": [
+    [
+      "val",
+      "10000",
+      "315969904399927214"
+    ],
+    [
+      "val",
+      "10001",
+      "315966070549927210"
+    ],
+    [
+      "val",
+      "10003",
+      "315976471749927218"
+    ],
+    [
+      "val",
+      "10002",
+      "315971486049927220"
+    ],
+    [
+      "val",
+      "10000",
+      "315969904849927215"
+    ],
+    [
+      "val",
+      "10001",
+      "315966071049927216"
+    ]
+  ],
+  "topogpt_selection": "Seed 3407 samples segments, first timestamp per segment; last replaced by first no-EOS frame if present",
+  "umpe_indices": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    7
+  ],
+  "umpe_tokens": [
+    "8e46878ced734164aae0e83567aa02a5",
+    "6f5b556ef64b47f596df0314f6db9f99",
+    "4f0f533c84c4493599f2eb3a60882b16",
+    "55c258972acb4300a3a6077a531ab050",
+    "44237858a539457da65822bfcf58c414",
+    "7bebe3c9be714f02837f8617c56df122"
+  ],
+  "umpe_display_score_threshold": 0.3,
+  "official_metrics_unchanged": true
+}

@@ -1,0 +1,55 @@
+{
+  "frames": [
+    {
+      "frame": 0,
+      "loss_seconds": 0.6918809413909912,
+      "decode_seconds": 0.4141320288181305,
+      "tokens": 250
+    },
+    {
+      "frame": 1,
+      "loss_seconds": 0.2511587515473366,
+      "decode_seconds": 0.3308936730027199,
+      "tokens": 250
+    },
+    {
+      "frame": 2,
+      "loss_seconds": 0.18347222357988358,
+      "decode_seconds": 2.66792743653059,
+      "tokens": 250
+    },
+    {
+      "frame": 3,
+      "loss_seconds": 0.17844008654356003,
+      "decode_seconds": 2.7303162068128586,
+      "tokens": 250
+    },
+    {
+      "frame": 4,
+      "loss_seconds": 0.18167822062969208,
+      "decode_seconds": 1.745875023305416,
+      "tokens": 250
+    },
+    {
+      "frame": 5,
+      "loss_seconds": 0.25352851301431656,
+      "decode_seconds": 1.224865011870861,
+      "tokens": 250
+    },
+    {
+      "frame": 6,
+      "loss_seconds": 0.2147582396864891,
+      "decode_seconds": 2.3713015988469124,
+      "tokens": 250
+    },
+    {
+      "frame": 7,
+      "loss_seconds": 0.3485223427414894,
+      "decode_seconds": 2.817271411418915,
+      "tokens": 250
+    }
+  ],
+  "shared_gpu": true,
+  "diagnostic_only": true,
+  "loss_fraction": 0.13871108682115538
+}
