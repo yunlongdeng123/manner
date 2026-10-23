@@ -1,0 +1,12 @@
+{
+  "source": "/usr/bin/shutdown on this AutoDL instance",
+  "inspection": "The supplied wrapper removes user Trash, logs a shutdown message, and terminates supervisord. Final shutdown will use only the verified supervisord termination mechanism after verified local retrieval, avoiding unrelated Trash removal.",
+  "executed": false,
+  "preconditions": [
+    "all official evaluations and diagnostics finished",
+    "report, code and artifacts committed",
+    "local hash and Git integrity checks passed",
+    "no unrelated active GPU or experiment/controller jobs",
+    "GPU mode confirmed"
+  ]
+}

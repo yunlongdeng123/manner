@@ -1,8 +1,10 @@
 """Package final evidence after reporting and Git commit, without raw images/weights."""
-import hashlib,json,pathlib,subprocess,tarfile
-R=pathlib.Path('/root/autodl-tmp/manner-repro');D=R/'delivery';D.mkdir(exist_ok=True)
+import argparse,hashlib,json,pathlib,subprocess,tarfile
+parser=argparse.ArgumentParser();parser.add_argument('--output-dir',default='/root/manner-repro-gpu-delivery');args=parser.parse_args()
+R=pathlib.Path('/root/autodl-tmp/manner-repro');D=pathlib.Path(args.output_dir).resolve();D.mkdir(exist_ok=True)
 summary=json.loads((R/'reports/results.json').read_text())
 assert len(summary['runs'])==3
+assert summary['diagnostic_control']['coverage']['full_validation_coverage']
 for name in ['topogpt_examples.png','umpe_examples.png','architecture_components.png','selection.json']:
     assert (R/'reports/figures'/name).exists(),name
 head=subprocess.check_output(['git','-C',str(R),'rev-parse','HEAD'],text=True).strip()

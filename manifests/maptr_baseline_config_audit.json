@@ -1,0 +1,21 @@
+{
+  "strict_load": true,
+  "epoch": 24,
+  "iter": 21120,
+  "model_differences": [],
+  "test_pipeline_differences": [],
+  "test_dataset_differences": [
+    {
+      "path": "/hdmap_pkl",
+      "local": "'/root/autodl-tmp/manner-repro/data/umpe_priors/selected/hd_val.pkl'",
+      "checkpoint": "None"
+    },
+    {
+      "path": "/sdmap_pkl",
+      "local": "'/root/autodl-tmp/manner-repro/data/umpe_priors/selected/sd_val.pkl'",
+      "checkpoint": "None"
+    }
+  ],
+  "parameters": 40578399,
+  "uses_map_priors_in_model": false
+}

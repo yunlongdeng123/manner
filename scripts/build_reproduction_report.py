@@ -9,6 +9,10 @@ def latest(pattern):
 top=latest('topogpt/*/metrics.json')
 ft=latest('umpe/finetuned_*/predictions.metrics.json')
 base=latest('umpe/base_*/predictions.metrics.json')
+control=latest('diagnostic/maptrv2_baseline_*/predictions.metrics.json')
+control_coverage=read(control.parent/'predictions.coverage.json')
+assert control_coverage['full_validation_coverage'] and control_coverage['all_numeric_outputs_finite']
+diagnostic=dict(directory=str(control.parent),metrics=read(control),coverage=control_coverage,reference_map=61.4,purpose='Official image-only MapTRv2 control for the UMPE accuracy gap')
 items={}
 for name,path in [('topogpt',top),('umpe_finetuned',ft),('umpe_base',base)]:
     coverage=read(path.parent/'predictions.coverage.json')
@@ -23,7 +27,7 @@ umrows=[]
 for label,key,ref in [('人行横道','ped_crossing_AP',66.6),('分隔线','divider_AP',67.2),('道路边界','boundary_AP',68.2),('mAP','mAP',67.4)]:
     umrows.append((label,items['umpe_base']['metrics']['NuscMap_chamfer/'+key]*100,items['umpe_finetuned']['metrics']['NuscMap_chamfer/'+key]*100,ref))
 smokes={k:read(R/'manifests'/(k+'_gpu_smoke_passed.json')) for k in ['topogpt','umpe']}
-summary=dict(completed_at=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).isoformat(),scope='Published checkpoint full validation, plus separately budgeted real-GPU engineering smokes; not from-scratch training reproduction',runs=items,smokes=smokes,topogpt_comparison=toprows,umpe_comparison=umrows,git_commit_before_report=subprocess.check_output(['git','-C',str(R),'rev-parse','HEAD'],text=True).strip())
+summary=dict(completed_at=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).isoformat(),scope='Published checkpoint full validation, plus separately budgeted real-GPU engineering smokes; not from-scratch training reproduction',runs=items,diagnostic_control=diagnostic,smokes=smokes,topogpt_comparison=toprows,umpe_comparison=umrows,git_commit_before_report=subprocess.check_output(['git','-C',str(R),'rev-parse','HEAD'],text=True).strip())
 report=R/'reports';report.mkdir(exist_ok=True)
 (report/'results.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2))
 md=['# TopoGPT 与 UMPE：3090 复现结果','',f"完成时间：{summary['completed_at']}。主机 `manner-3090-1023`；工作目录 `/root/autodl-tmp/manner-repro`。",'',
@@ -45,6 +49,13 @@ md += ['', '**UMPE 的论文主表成绩尚未对齐。** 微调权重本轮 mAP
 '对 16 个等间隔样本的 96 路相机，还独立用 4×4 齐次变换重算了相机到 LiDAR 外参，最大误差约 1.01e-12；内参、时间戳、图像路径与关键帧标志一致。该抽检及定性样例未发现整体坐标翻转，但不据此断言已排除所有数据与实现差异。','',
 '发布文件还存在版本对应关系的限制：基础/微调文件是 epoch 29/44，其元数据指向的历史最佳文件分别是 epoch 26/42，历史最佳 mAP 记录为 68.65/70.91。这些是训练历史记录，未在本轮得到验证，也不能替代实测。','',
 '[上游 issue #5](https://github.com/Ethan-Zheng136/UMPE/issues/5) 中，其他复现者在矢量先验版本也报告了约 55–57 mAP；作者 2026-10-22 回复称本地权重表现更高。截至本次核查，配置/权重/先验组合的差异仍未得到明确解释。该 issue 与本轮四类先验配置不同，只能作为相关线索，不能证明原因相同。公开讨论快照与本地诊断保存在 `manifests/upstream/`、`reports/diagnostics/`。']
+control_map=diagnostic['metrics']['NuscMap_chamfer/mAP']*100
+control_close=abs(control_map-61.4)<1.0
+md += ['', '### 官方 MapTRv2 对照','',
+f'另用官方图像输入 MapTRv2 R50 24-epoch 权重，在相同 6,019 帧、环境与评分实现上进行诊断对照。本次 mAP **{control_map:.2f}**，相对[官方仓库 61.4](https://github.com/hustvl/MapTR/blob/maptrv2/README.md) 为 **{control_map-61.4:+.2f}** 个百分点。', '',
+('该对照接近官方参考值，支持公共图像数据、几何变换和基础评分链路基本正确；UMPE 的剩余差距更需要核对发布权重、先验资产与训练配置的对应关系。对照不能证明 UMPE 特有的数据分支完全正确。' if control_close else '该对照也未接近官方参考值，因此当前证据不足以将差距归因于 UMPE 权重；公共数据、代码及环境差异仍需继续排查。'), '',
+'基线模型和测试管线与权重内嵌配置一致，严格加载无缺失或多余参数，先做 8 帧真实 GPU 推理与官方评分再运行全量。UMPE 数据集构造器需要先验字典，因此仅补充缓存路径以满足构造；基线管线只收集图像，模型没有地图编码或融合模块。新对照采用 OpenCV 单线程，属于独立工程诊断开销，不计入 UMPE 训练或改变其原始预测。', '',
+f"对照结果：`{control.parent}`；预测 SHA-256 `{control_coverage['sha256']}`。"]
 md += ['',
 '论文主表标注 24 epochs；发布的基础/微调 checkpoint 元数据分别为 epoch 29/44，内嵌训练配置为 72 epochs。因此本次是公开权重的实测复现，不能声称复现了论文的严格训练预算。原始栅格 SD 包缺少验证集 16 帧，保留官方白图回退，未删除这些帧或补造先验。','',
 '## 真实 GPU 验收','',

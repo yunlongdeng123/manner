@@ -1,0 +1,24 @@
+{
+  "publisher": "https://github.com/hustvl/MapTR/blob/maptrv2/README.md",
+  "source": "https://drive.usercontent.google.com/download?id=1AmQ3fT-J-MM4B8kh_9Gm2G5guM92Agww&export=download&confirm=t",
+  "file": "/root/autodl-tmp/manner-repro/weights/diagnostic/maptrv2_nusc_r50_24e.pth",
+  "bytes": 484938157,
+  "sha256": "f143106dd60da13af9f1462aec0006ebd834fec6da9a2571b9a7a414e305a1dc",
+  "publisher_hash_available": false,
+  "all_zip_member_crc_passed": true,
+  "seconds": 189.6765012741089,
+  "curl_stats": "200 484938157 2572205",
+  "probes": [
+    {
+      "proxy": false,
+      "exit_code": 28,
+      "stats": "000  0 0"
+    },
+    {
+      "proxy": true,
+      "exit_code": 0,
+      "stats": "206 application/octet-stream 8388608 1646969"
+    }
+  ],
+  "purpose": "Engineering control to diagnose UMPE mAP gap; no method tuning"
+}

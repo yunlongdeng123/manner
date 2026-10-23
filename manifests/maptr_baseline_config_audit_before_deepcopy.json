@@ -1,0 +1,27 @@
+{
+  "strict_load": true,
+  "epoch": 24,
+  "iter": 21120,
+  "model_differences": [
+    {
+      "path": "/pts_bbox_head/train_cfg",
+      "local": "{'grid_size': [512, 512, 1], 'voxel_size': [0.15, 0.15, 20.0], 'point_cloud_range': [-15.0, -30.0, -10.0, 15.0, 30.0, 10.0], 'out_size_factor': 4, 'assigner': {'type': 'MapTRAssigner', 'cls_cost': {'type': 'FocalLossCost', 'weight': 2.0}, 'reg_cost': {'type': 'BBoxL1Cost', 'weight': 0.0, 'box_format': 'xywh'}, 'iou_cost': {'type': 'IoUCost', 'iou_mode': 'giou', 'weight': 0.0}, 'pts_cost': {'type': 'OrderedPtsL1Cost', 'weight': 5}, 'pc_range': [-15.0, -30.0, -10.0, 15.0, 30.0, 10.0]}}",
+      "checkpoint": "None"
+    }
+  ],
+  "test_pipeline_differences": [],
+  "test_dataset_differences": [
+    {
+      "path": "/hdmap_pkl",
+      "local": "'/root/autodl-tmp/manner-repro/data/umpe_priors/selected/hd_val.pkl'",
+      "checkpoint": "None"
+    },
+    {
+      "path": "/sdmap_pkl",
+      "local": "'/root/autodl-tmp/manner-repro/data/umpe_priors/selected/sd_val.pkl'",
+      "checkpoint": "None"
+    }
+  ],
+  "parameters": 40578399,
+  "uses_map_priors_in_model": false
+}

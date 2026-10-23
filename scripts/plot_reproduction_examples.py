@@ -1,11 +1,13 @@
 """Deterministic qualitative checks; display filtering never affects metrics."""
-import argparse,json,pathlib,pickle,random
+import argparse,json,pathlib,pickle,random,sys
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 R=pathlib.Path('/root/autodl-tmp/manner-repro')
+sys.path.insert(0,str(R/'repos/TopoGPT'))
+from MapPrior.datasets.map_dataset import get_ar_topo_pred
 p=argparse.ArgumentParser();p.add_argument('--smoke',action='store_true');a=p.parse_args()
 out=R/'reports'/('smoke_figures' if a.smoke else 'figures');out.mkdir(parents=True,exist_ok=True)
 def read(path):
@@ -22,7 +24,7 @@ def line(ax,points,color):
 def graph(ax,obj,color):
     lanes=obj['lane_centerline']
     for lane in lanes:line(ax,lane['points'],color)
-    adj=np.asarray(obj.get('topology_lclc',np.zeros((len(lanes),len(lanes)))))
+    adj=np.asarray(obj['topology_lclc']) if 'topology_lclc' in obj else get_ar_topo_pred([x['points'] for x in lanes],dist_thre=.5,ret_hard=True)
     for i,j in zip(*np.where(adj>.5)):
         u=np.asarray(lanes[i]['points'])[-1,:2];v=np.asarray(lanes[j]['points'])[0,:2]
         ax.annotate('',xy=v,xytext=u,arrowprops=dict(arrowstyle='->',lw=.6,color='#64748b',alpha=.65,linestyle='dashed'))

@@ -3,7 +3,7 @@ import datetime,hashlib,json,pathlib,shutil
 R=pathlib.Path('/root/autodl-tmp/manner-repro');M=R/'manifests'
 summary=json.loads((R/'reports/results.json').read_text())
 assert set(summary['runs'])=={'topogpt','umpe_finetuned','umpe_base'}
-for row in summary['runs'].values():
+for row in list(summary['runs'].values())+[summary['diagnostic_control']]:
     assert row['coverage']['full_validation_coverage']
     assert row['coverage']['all_numeric_outputs_finite']
 old=M/'final_status.json';backup=M/'final_status_no_gpu_snapshot.json'
@@ -11,6 +11,7 @@ if not backup.exists():shutil.copy2(old,backup)
 state=json.loads(old.read_text())
 state.update(phase='published_checkpoint_validation_complete',updated_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),gpu_smoke_passed={'topogpt':True,'umpe':True},full_validation={name:{'directory':row['directory'],'frames':row['coverage']['frames'],'sha256':row['coverage']['sha256']} for name,row in summary['runs'].items()},formal_training_started=False,report='/root/autodl-tmp/manner-repro/reports/reproduction_report.md')
 state['free_GiB']={p:round(shutil.disk_usage(p).free/2**30,2) for p in ['/root',str(R)]}
+state['diagnostic_control']=summary['diagnostic_control']
 state['cpu_preparation']['phase']='complete'
 old.write_text(json.dumps(state,ensure_ascii=False,indent=2))
 readme=R/'README.md';text=readme.read_text()
