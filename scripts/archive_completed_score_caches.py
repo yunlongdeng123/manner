@@ -1,12 +1,13 @@
 """Preserve completed scoring intermediates in a verified archive on system disk."""
-import datetime,hashlib,json,pathlib,tarfile,time
+import argparse,datetime,hashlib,json,pathlib,tarfile,time
+parser=argparse.ArgumentParser();parser.add_argument('--control',action='store_true');args=parser.parse_args()
 R=pathlib.Path('/root/autodl-tmp/manner-repro')
-T=R/'repos/UMPE/Maptrv2/test/umpe_reproduce_cached'
-dirs=['Sat_Oct_24_00_39_04_2026','Sat_Oct_24_00_57_44_2026']
+T=R/'repos/UMPE/Maptrv2/test'/('maptr_baseline_control' if args.control else 'umpe_reproduce_cached')
+dirs=['Sat_Oct_24_01_47_48_2026'] if args.control else ['Sat_Oct_24_00_39_04_2026','Sat_Oct_24_00_57_44_2026']
 files=[T/d/'pts_bbox'/name for d in dirs for name in ['cls_formatted.pkl','nuscmap_results.json']]
 for p in files:assert p.is_file() and not p.is_symlink() and p.resolve().is_relative_to(T.resolve()),str(p)
-for name in ['finetuned_20261023T154019Z','base_parallel_20261023T155704Z']:
-    folder=R/'results/umpe'/name
+folders=[R/'results/diagnostic/maptrv2_baseline_20261023T171236Z'] if args.control else [R/'results/umpe'/name for name in ['finetuned_20261023T154019Z','base_parallel_20261023T155704Z']]
+for folder in folders:
     c=json.loads((folder/'predictions.coverage.json').read_text())
     assert c['full_validation_coverage'] and (folder/'predictions.metrics.json').exists()
 def sha_stream(f):
@@ -24,7 +25,7 @@ for proc in pathlib.Path('/proc').glob('[0-9]*'):
             except (FileNotFoundError,PermissionError):pass
     except (FileNotFoundError,PermissionError):pass
 D=pathlib.Path('/root/manner-repro-score-cache-archive');D.mkdir(exist_ok=True)
-out=D/'umpe_completed_scoring_20261024.tgz';temp=out.with_suffix('.part')
+out=D/('maptr_control_scoring_20261024.tgz' if args.control else 'umpe_completed_scoring_20261024.tgz');temp=out.with_suffix('.part')
 assert not out.exists() and not temp.exists()
 start=time.monotonic();print('Compressing completed score caches; originals remain until verification',flush=True)
 with tarfile.open(temp,'w:gz',compresslevel=1) as t:
@@ -39,5 +40,5 @@ for p in files:
     assert p.resolve().is_relative_to(T.resolve())
     p.unlink()
 result=dict(time=datetime.datetime.now(datetime.timezone.utc).isoformat(),archive=str(out),archive_bytes=out.stat().st_size,sha256=archive_sha,files=record,released_data_disk_bytes=sum(x['bytes'] for x in record.values()),seconds=time.monotonic()-start,all_member_hashes_verified=True,original_predictions_metrics_checkpoints_logs_untouched=True,rebuild='scripts/score_umpe_predictions.py can rebuild caches from predictions and ground truth')
-(R/'manifests/score_cache_archive.json').write_text(json.dumps(result,indent=2))
+(R/'manifests'/('control_score_cache_archive.json' if args.control else 'score_cache_archive.json')).write_text(json.dumps(result,indent=2))
 print(json.dumps(result,indent=2),flush=True)

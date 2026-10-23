@@ -1,6 +1,7 @@
 """Check result retrieval and absence of experiment jobs; this script never shuts down."""
 import datetime,json,os,pathlib,shutil,subprocess
 R=pathlib.Path('/root/autodl-tmp/manner-repro');S=pathlib.Path('/root/manner-repro-shutdown-state');S.mkdir(exist_ok=True)
+assert not (S/'cache_transfer_pending.json').exists(),'Scoring-cache retrieval is still pending'
 receipt=json.loads((S/'local_delivery_receipt.json').read_text())
 head=subprocess.check_output(['git','-C',str(R),'rev-parse','HEAD'],text=True).strip()
 assert receipt['commit']==head
