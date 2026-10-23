@@ -87,5 +87,8 @@ for n,idx in enumerate(indices):
 fig.suptitle(('UMPE: ground truth and published finetuned checkpoint' if a.smoke else 'Same frames: ground truth, official MapTRv2 control and UMPE finetuned checkpoint')+'\nDisplay score >= 0.3 only; all scores are retained for official evaluation; black triangle: ego origin',fontsize=13)
 fig.legend([Line2D([0],[0],color=c) for c in colors],classes,loc='outside lower center',ncol=3) if tuple(int(x) for x in matplotlib.__version__.split('.')[:2])>=(3,7) else fig.legend([Line2D([0],[0],color=c) for c in colors],classes,loc='lower center',ncol=3)
 fig.savefig(out/'umpe_examples.png',dpi=170);fig.savefig(out/'umpe_examples.svg');plt.close(fig)
+for name in ['topogpt_examples.svg','umpe_examples.svg']:
+    path=out/name
+    path.write_text('\n'.join(line.rstrip() for line in path.read_text().splitlines())+'\n')
 (out/'selection.json').write_text(json.dumps(dict(smoke=a.smoke,topogpt_frames=keys,topogpt_selection='Seed 3407 samples segments, first timestamp per segment; last replaced by first no-EOS frame if present',umpe_indices=indices,umpe_tokens=[infos[i]['token'] for i in indices],umpe_display_score_threshold=.3,official_metrics_unchanged=True),indent=2))
 print(str(out))

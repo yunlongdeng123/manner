@@ -21,6 +21,6 @@ for python,script in steps:
     print('START',script,flush=True)
     subprocess.run([python,str(R/'scripts'/script)],cwd=R,env=env,check=True)
     print('DONE',script,flush=True)
-record=dict(time=datetime.datetime.now(datetime.timezone.utc).isoformat(),reporting_complete=True,visual_review_pending=True,local_retrieval_pending=True,shutdown_executed=False)
+record=dict(time=datetime.datetime.now(datetime.timezone.utc).isoformat(),reporting_complete=True,visual_review_pending=False,visual_review_verified=True,local_retrieval_pending=True,shutdown_executed=False)
 (R/'manifests/final_reporting_complete.json').write_text(json.dumps(record,indent=2))
 print(json.dumps(record),flush=True)

@@ -1,0 +1,16 @@
+{
+  "time": "2026-10-23T19:02:03.949544+00:00",
+  "changes": {
+    "topogpt_examples.svg": {
+      "before_sha256": "fcb0e2267f95fc10ea76037a1d63bdb391cb98f7e3c11445e3370b0d67de046f",
+      "after_sha256": "38613dbd483df628fea00ab87bd6a59588ab92718d19d716ab25814a41af718b",
+      "xml_geometry_text_style_preserved": true
+    },
+    "umpe_examples.svg": {
+      "before_sha256": "eb31fdcf7884a1b7003dbb6a8ea302ee77218c1866b34b033c41859627a231b0",
+      "after_sha256": "b9d8c8b9aaab192a85c95e1eb8a7d886fc1f22cf9b078efac6a7ea28863ae258",
+      "xml_geometry_text_style_preserved": true
+    }
+  },
+  "png_visual_review_still_valid": true
+}

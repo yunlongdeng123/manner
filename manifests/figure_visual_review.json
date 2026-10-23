@@ -12,5 +12,6 @@
     "topogpt_examples.png": "8b5789bf8150e4f5fe84e93c0d1008ec1b4a6cb4d9a4a7974b77eaa8631bb7c4",
     "umpe_examples.png": "f3c795fc489bd9482ad3e0be97f898d9aaedf041001a164ef1a150d58eb56940"
   },
-  "plot_script_sha256": "2f8139d88e0d0e45e8334b63f9ce663b0ef5116ca9b12c7120043007518300c8"
+  "plot_script_sha256": "46897f4ba726ed5a8b36966c96824a0f634407a7aa08de5549202d27d8d5ff82",
+  "subsequent_change": "Only SVG trailing whitespace normalization; existing PNG hashes and parsed SVG geometry/text/style preserved"
 }
