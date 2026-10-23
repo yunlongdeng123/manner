@@ -5,6 +5,8 @@ R=pathlib.Path('/root/autodl-tmp/manner-repro');D=pathlib.Path(args.output_dir).
 summary=json.loads((R/'reports/results.json').read_text())
 assert len(summary['runs'])==3
 assert summary['diagnostic_control']['coverage']['full_validation_coverage']
+ready=json.loads((R/'manifests/delivery_ready.json').read_text())
+assert ready['report_sha256']==hashlib.sha256((R/'reports/reproduction_report.md').read_bytes()).hexdigest()
 for name in ['topogpt_examples.png','umpe_examples.png','architecture_components.png','selection.json']:
     assert (R/'reports/figures'/name).exists(),name
 head=subprocess.check_output(['git','-C',str(R),'rev-parse','HEAD'],text=True).strip()

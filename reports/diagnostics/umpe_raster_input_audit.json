@@ -1,0 +1,1052 @@
+{
+  "frames": 6019,
+  "ambiguous_or_missing_satellite_matches": [],
+  "satellite_pose_filename_max_error_m": 0.0,
+  "raster_missing_count": 16,
+  "raster_missing_tokens": [
+    "55c258972acb4300a3a6077a531ab050",
+    "44237858a539457da65822bfcf58c414",
+    "8cd36e9531fb4eba8e6ac1d666c4641c",
+    "7bebe3c9be714f02837f8617c56df122",
+    "4b894442c95141f9affd731d9da7b43c",
+    "e00dc15130dc44e796687baadd076ae4",
+    "e63b83b436a0479db7362338cdfab118",
+    "c567f9b8e9f34817acdc9c49d791c557",
+    "8e352d4a6c6f40c8ad4f10a3d2c3f158",
+    "841dd6709e9b4d7c9d6bf888f1fe6d7e",
+    "e54b784a608644a2804fcf800c7499f7",
+    "a1289b27ca1d41deb6fc982be9a3d03c",
+    "e6e877f31dd447199b56cae07f86daad",
+    "cb4e6195faad467094fbd4d0a9e960e9",
+    "7f594234e8034228b1a7d727f1981e09",
+    "9cdbf5ff7f294549aea0a4307e5d104a"
+  ],
+  "pixel_audit_examples": [
+    {
+      "index": 0,
+      "token": "30e55a3ec6184d8cb1944b39ba19d622",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1531281439800013_singapore-onenorth_732.0614444472142_949.0676735861334_a9f20e17155844bbb5e3781a8a0e206c.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            202,
+            102,
+            3
+          ],
+          "min": 0,
+          "max": 231,
+          "mean": 98.62680385685627,
+          "std": 33.159903400710576,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 224.68741666666668,
+          "std": 78.41330143323722,
+          "nonwhite_fraction": 0.34245
+        }
+      }
+    },
+    {
+      "index": 194,
+      "token": "1477ef1a6a3b42daa70ac218e6f6c6f9",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1531281651900091_singapore-onenorth_490.54364745057_1725.8806353917867_41eec1f5a25a493197d57fbec43a5928.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            202,
+            102,
+            3
+          ],
+          "min": 0,
+          "max": 222,
+          "mean": 56.32327056235035,
+          "std": 35.03567862993158,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 207.81853333333333,
+          "std": 89.99249470473758,
+          "nonwhite_fraction": 0.4485
+        }
+      }
+    },
+    {
+      "index": 388,
+      "token": "b211206072a8491dab37ca3965137daf",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1531281945398654_singapore-onenorth_286.8925664036904_890.8023944800586_d4a7df62d2b344c0a949dcee1abfdf6e.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            202,
+            102,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 50.15579499126383,
+          "std": 38.71638184579044,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 208.98485,
+          "std": 90.59529726836911,
+          "nonwhite_fraction": 0.45435
+        }
+      }
+    },
+    {
+      "index": 582,
+      "token": "29f27e9e5e0f434983e9f0edfa77f144",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1531885410198528_singapore-onenorth_1012.751069600812_876.1517764689663_753e8b77497a4ec994b551e2a1dc9244.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            202,
+            102,
+            3
+          ],
+          "min": 0,
+          "max": 243,
+          "mean": 96.9247557108652,
+          "std": 44.339885164541904,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 205.07205,
+          "std": 93.3808227571245,
+          "nonwhite_fraction": 0.51155
+        }
+      }
+    },
+    {
+      "index": 776,
+      "token": "7f73470d1234487996a0f254b1e6c610",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1532400194147454_singapore-onenorth_271.49776722675097_856.6238016380055_39e32bd1bba04ce2a1917ea9cee7f308.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            202,
+            102,
+            3
+          ],
+          "min": 0,
+          "max": 221,
+          "mean": 52.43792467482042,
+          "std": 37.5942472377106,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 201.86408333333333,
+          "std": 96.21810714894775,
+          "nonwhite_fraction": 0.53825
+        }
+      }
+    },
+    {
+      "index": 970,
+      "token": "938d0ee9763d44b6a01b7dbbe2240c85",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1533151189948142_boston-seaport_1531.7482178787639_851.6130771225565_812758375f78425596be1a4d59d25402.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            273,
+            137,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 139.1343190467278,
+          "std": 39.71546871982368,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 208.1366,
+          "std": 84.8863682054231,
+          "nonwhite_fraction": 0.3575
+        }
+      }
+    },
+    {
+      "index": 1164,
+      "token": "beee295d6f3645208fb6763f8c415323",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1533151371947847_boston-seaport_1082.2256873215333_1209.2931592737862_b58c7e8814494800a625f6979ec6802f.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            273,
+            137,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 116.8818391665107,
+          "std": 48.96168421581018,
+          "nonwhite_fraction": 0.9999197882409562
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 208.20641666666666,
+          "std": 84.72289719329945,
+          "nonwhite_fraction": 0.3552
+        }
+      }
+    },
+    {
+      "index": 1358,
+      "token": "a98fba72bde9433fb882032d18aedb2e",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1533151608048151_boston-seaport_631.769555770283_1624.9663898913764_e3bdfba683484a1ea09b7bb86e6be648.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            273,
+            137,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 119.43027370034669,
+          "std": 57.00424654991064,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 205.85286666666667,
+          "std": 92.80737157386201,
+          "nonwhite_fraction": 0.3896
+        }
+      }
+    },
+    {
+      "index": 1553,
+      "token": "72c604b557dc4a22843df9083359d696",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1533151828547716_boston-seaport_1665.2591913848755_1257.3952943853178_adeaf3489fb7474b8793501d0c690dc2.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            273,
+            137,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 114.30768339527464,
+          "std": 50.41906687758091,
+          "nonwhite_fraction": 0.9999732627469854
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 218.47738333333334,
+          "std": 84.90990748132039,
+          "nonwhite_fraction": 0.26165
+        }
+      }
+    },
+    {
+      "index": 1747,
+      "token": "273f8288e5bf48ef835a1b71839f95ff",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1533201582948508_singapore-onenorth_366.72683889863237_1094.9756382734781_f0813632347743b78ead4e68293e4f2a.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            202,
+            102,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 106.98243059600078,
+          "std": 57.29590923133035,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 206.81133333333332,
+          "std": 92.6291853119499,
+          "nonwhite_fraction": 0.50615
+        }
+      }
+    },
+    {
+      "index": 1941,
+      "token": "a18be1888ea5465eb6530ae4b1eb69d7",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1534968049447367_boston-seaport_1788.8632274721406_1134.2413022278988_f23c58a397bc4bb89a671f21caf1610d.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            273,
+            137,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 153.9487892480593,
+          "std": 27.381580471372857,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 230.69373333333334,
+          "std": 73.74212772038037,
+          "nonwhite_fraction": 0.15825
+        }
+      }
+    },
+    {
+      "index": 2135,
+      "token": "ab76b5143c7c433bac44049dc2a8c9e1",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1535489351197988_boston-seaport_1275.7155588177145_1069.3279016274214_26b8e87eec124939a4f5da08576f34f6.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            273,
+            137,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 150.17570831439446,
+          "std": 38.72477502077718,
+          "nonwhite_fraction": 0.9999732627469854
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 198.48981666666666,
+          "std": 92.03580297706462,
+          "nonwhite_fraction": 0.42225
+        }
+      }
+    },
+    {
+      "index": 2329,
+      "token": "09fe2623b0774391ba3a50ec61bc02f7",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1535639727701422_boston-seaport_1781.068480760221_1195.4380512336893_0439f5e0af1b46fe92653c47c66996bf.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            273,
+            137,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 115.16606507847384,
+          "std": 49.233090242714916,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 213.9633,
+          "std": 90.32913826543827,
+          "nonwhite_fraction": 0.3291
+        }
+      }
+    },
+    {
+      "index": 2523,
+      "token": "d95e76da76344b1e84cfffcd65f84b2d",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1535657700448328_boston-seaport_1301.2033586849448_896.0731273533474_63d5d93635ee4982a566adf0ec8831f7.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            273,
+            137,
+            3
+          ],
+          "min": 0,
+          "max": 251,
+          "mean": 145.86913897132877,
+          "std": 34.7396082830167,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 231.59873333333334,
+          "std": 68.4525868885091,
+          "nonwhite_fraction": 0.2388
+        }
+      }
+    },
+    {
+      "index": 2717,
+      "token": "b83a101de6dd443987b85b63227fe6e9",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1535657834547862_boston-seaport_1357.5774438006465_1117.3248172130386_f4f09e1a0f7d4446b9e92a6fff5b6505.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            273,
+            137,
+            3
+          ],
+          "min": 0,
+          "max": 250,
+          "mean": 106.17250875645036,
+          "std": 52.275049593138256,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 203.66133333333335,
+          "std": 96.77321550006603,
+          "nonwhite_fraction": 0.39675
+        }
+      }
+    },
+    {
+      "index": 2911,
+      "token": "3513a08c181a49c4b5c451170a333ee4",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1535730337196699_boston-seaport_1255.224556736029_998.4354696736123_61a51bd66ffe4b1d816f4264c97dea69.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            273,
+            137,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 147.4042761779988,
+          "std": 39.4355580222879,
+          "nonwhite_fraction": 0.9999465254939708
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 209.87471666666667,
+          "std": 92.92118660861502,
+          "nonwhite_fraction": 0.328
+        }
+      }
+    },
+    {
+      "index": 3106,
+      "token": "31365e10d897470cbec3e920a49ce286",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1535730609897391_boston-seaport_1217.8775964810557_1378.6089591022146_0eac6d54b76048bbb996427e3b28c1d4.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            273,
+            137,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 156.69896526830834,
+          "std": 40.304035672367114,
+          "nonwhite_fraction": 0.9998930509879415
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 227.84573333333333,
+          "std": 75.35468710347234,
+          "nonwhite_fraction": 0.1939
+        }
+      }
+    },
+    {
+      "index": 3300,
+      "token": "178c06a23bbc4b0cb34a8708f48cf88c",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1537295885649249_boston-seaport_1846.295429245683_1258.7724847407794_1e41af678b1942f688cfe41674ecb303.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            273,
+            137,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 134.37518604671888,
+          "std": 41.028223280983624,
+          "nonwhite_fraction": 0.9998930509879415
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 231.60605,
+          "std": 68.53355591774611,
+          "nonwhite_fraction": 0.2388
+        }
+      }
+    },
+    {
+      "index": 3494,
+      "token": "ff6647167b944ee0864ec6fbd1baedfe",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1537296063949074_boston-seaport_2047.1578181783284_1190.5832952245898_394fdaf6c34c41e7a7d3a47a8bf7699d.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            273,
+            137,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 140.04085452260634,
+          "std": 38.28143044979744,
+          "nonwhite_fraction": 0.9999732627469854
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 213.86968333333334,
+          "std": 86.24849332538929,
+          "nonwhite_fraction": 0.41835
+        }
+      }
+    },
+    {
+      "index": 3688,
+      "token": "3d83906b6b874b58a26223d23dad4d86",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1537297950200282_boston-seaport_1131.866401645314_1578.6604079384538_656f023a6f3a4e72af30acb00805a4ad.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            273,
+            137,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 73.82052173293049,
+          "std": 34.850864071729276,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 203.15851666666666,
+          "std": 88.18937495979729,
+          "nonwhite_fraction": 0.42145
+        }
+      }
+    },
+    {
+      "index": 3882,
+      "token": "3abf81a7c3894000a4c508e6ced0caca",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1537298045699839_boston-seaport_1418.7928799642768_1217.945890562158_90d978a96da54159a53b1b9268494f0b.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            273,
+            137,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 95.42899031220199,
+          "std": 53.552561295421704,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 218.96445,
+          "std": 83.52154204872836,
+          "nonwhite_fraction": 0.2697
+        }
+      }
+    },
+    {
+      "index": 4076,
+      "token": "e60fea7246b54e949468bef871cf5cac",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1537298182800306_boston-seaport_623.7660407934793_680.926342547903_2b73a421e64b4e3bb5a3ba7c33fcd631.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            273,
+            137,
+            3
+          ],
+          "min": 0,
+          "max": 251,
+          "mean": 128.37225386130496,
+          "std": 32.95330974789813,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 217.53513333333333,
+          "std": 74.85172052564248,
+          "nonwhite_fraction": 0.35825
+        }
+      }
+    },
+    {
+      "index": 4270,
+      "token": "5ad1d812de7245f9a21bea7d059ad957",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1537852871548878_singapore-onenorth_592.0283978484667_825.5622335202211_a25236cff08f4bb4b01cbe96aa6165bc.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            202,
+            102,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 111.7240018119459,
+          "std": 50.425254850915536,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 229.7385,
+          "std": 71.5117571994284,
+          "nonwhite_fraction": 0.26515
+        }
+      }
+    },
+    {
+      "index": 4464,
+      "token": "fcb5d6987a9e4deb80551d2a85e60e20",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1537853042148192_singapore-onenorth_121.79353916745443_1030.057984181309_1e1c64e7fe9343a5b11bce5c55b4dea6.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            202,
+            102,
+            3
+          ],
+          "min": 0,
+          "max": 199,
+          "mean": 68.91943311978257,
+          "std": 39.327689951672006,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 225.17558333333332,
+          "std": 75.55560394278986,
+          "nonwhite_fraction": 0.3008
+        }
+      }
+    },
+    {
+      "index": 4659,
+      "token": "a16e29084602482e892e608f505c6285",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1538448809148965_singapore-queenstown_1660.5382795693135_2749.3009541355937_9842ef38891f4f57b297f455c3189be2.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            202,
+            102,
+            3
+          ],
+          "min": 0,
+          "max": 209,
+          "mean": 53.42326732673267,
+          "std": 34.63491983422835,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 228.09948333333332,
+          "std": 73.48472711885822,
+          "nonwhite_fraction": 0.28365
+        }
+      }
+    },
+    {
+      "index": 4853,
+      "token": "2b78a8099c93418097ce1f2807e23618",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1538984294547729_singapore-queenstown_540.9712971498116_1733.8663470264369_fa30e580a1b94e26a43eaab2419bbb1d.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            202,
+            102,
+            3
+          ],
+          "min": 0,
+          "max": 231,
+          "mean": 50.92234517569404,
+          "std": 26.431694849253976,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 216.36158333333333,
+          "std": 84.84614413253983,
+          "nonwhite_fraction": 0.4065
+        }
+      }
+    },
+    {
+      "index": 5047,
+      "token": "806836e294014fa9b9b5d167044d59b1",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1538984576447961_singapore-queenstown_1813.954702119213_887.7409069404646_faef92cd757f47b681508449f48d1a2a.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            202,
+            102,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 93.42909143855562,
+          "std": 46.55613734281345,
+          "nonwhite_fraction": 0.9999514657348088
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 215.0212,
+          "std": 84.39831781830726,
+          "nonwhite_fraction": 0.3887
+        }
+      }
+    },
+    {
+      "index": 5241,
+      "token": "0d9c4c2de24b49758901191f623d426b",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1538984981948121_singapore-queenstown_621.8539156767023_1648.3224096710676_278e7121aca7464fb77e3a432fbbf239.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            202,
+            102,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 71.77692033909273,
+          "std": 38.395580312063174,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 224.50441666666666,
+          "std": 76.75509308069654,
+          "nonwhite_fraction": 0.3097
+        }
+      }
+    },
+    {
+      "index": 5435,
+      "token": "5cea96ab7d324d958bb1db9da621b43c",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1542799331198914_singapore-hollandvillage_2445.267987468515_2049.925359393427_c5767b59d89547dba7ebde12e13b33aa.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            202,
+            102,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 94.78654630168899,
+          "std": 58.47438913866906,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 246.12771666666666,
+          "std": 46.35959525045909,
+          "nonwhite_fraction": 0.1156
+        }
+      }
+    },
+    {
+      "index": 5629,
+      "token": "22604ed0b4234a8bafcb4be0eb38ee19",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1542799527947176_singapore-hollandvillage_1605.5869054315253_2479.6823585895672_fcbd6a2ed3e34b11a5896a9cd3e5b292.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            202,
+            102,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 115.95009059729503,
+          "std": 45.79909807143236,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 217.79511666666667,
+          "std": 82.05980932315803,
+          "nonwhite_fraction": 0.3538
+        }
+      }
+    },
+    {
+      "index": 5823,
+      "token": "c7200859948a4adb90ee4d0155a0105e",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1542799624648339_singapore-hollandvillage_1159.1999694562087_2833.912703918485_99fa5346bdfa4c6aa2f2953e31b2185d.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            202,
+            102,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 92.83339804568692,
+          "std": 45.06905770790371,
+          "nonwhite_fraction": 1.0
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 209.33833333333334,
+          "std": 90.64619130014357,
+          "nonwhite_fraction": 0.377
+        }
+      }
+    },
+    {
+      "index": 6018,
+      "token": "f0ee73d43c2748fbb584d1a062e2773a",
+      "satellite": "/root/autodl-tmp/manner-repro/data/nuscenes/satellite_map_dataset/rotated_trainval/1542799761947815_singapore-hollandvillage_608.7393912655357_2007.316488052058_597351ed877f4a75bdaeaef94d38c0e7.jpg",
+      "raster_missing": false,
+      "modalities": {
+        "satellite": {
+          "shape": [
+            202,
+            102,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 64.0558952954119,
+          "std": 34.95427069695353,
+          "nonwhite_fraction": 0.9999514657348088
+        },
+        "sd_raster": {
+          "shape": [
+            200,
+            100,
+            3
+          ],
+          "min": 0,
+          "max": 255,
+          "mean": 196.8286,
+          "std": 100.60389317536375,
+          "nonwhite_fraction": 0.42675
+        }
+      }
+    }
+  ],
+  "method": "Independent filename index by timestamp/location, x/y compared against ego global pose; 32 equally spaced decoded image samples",
+  "limitation": "Does not independently establish geographic correctness or rotation of the published imagery"
+}
