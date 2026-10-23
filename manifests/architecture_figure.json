@@ -1,0 +1,18 @@
+{
+  "render_host": "Windows local workstation",
+  "matplotlib": "3.10.3",
+  "font": "Microsoft YaHei (font file not redistributed)",
+  "svg_glyphs_embedded_as_paths": true,
+  "language": "Chinese terms with English labels",
+  "visual_inspection": "Passed: labels, arrows and panels readable without clipping",
+  "artifacts": {
+    "architecture_components.png": {
+      "bytes": 222278,
+      "sha256": "f0c2df6624f67f449c145ffc016ac4e21dc2cf6dddc26fa7d81389d42091bdea"
+    },
+    "architecture_components.svg": {
+      "bytes": 185743,
+      "sha256": "0fc72afc04a64a4a736fbfc1d56544d14f1d65614f313a004cd3a8af449f87ee"
+    }
+  }
+}

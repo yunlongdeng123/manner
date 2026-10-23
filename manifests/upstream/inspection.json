@@ -1,0 +1,12 @@
+{
+  "checked_at": "2026-10-23T16:59:13.967181+00:00",
+  "urls": [
+    "https://github.com/Ethan-Zheng136/UMPE/issues/5",
+    "https://github.com/Ethan-Zheng136/UMPE/issues/3"
+  ],
+  "finding": "Related public vector-only reproduction gap remains discussed; not evidence that this four-prior experiment has the same cause. No upstream messages were posted.",
+  "snapshots": {
+    "umpe_issue_5.json": "a5fbf119f03c7c01346ba696042d56260413f497b3bc68556bb5c3e8c2b2450d",
+    "umpe_issue_5_comments.json": "4c3564be4a846efacc1c04c2175ee8d2b347748d2e2b62cdbb0532915494b711"
+  }
+}

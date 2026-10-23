@@ -1,0 +1,18 @@
+{
+  "_format_bbox": {
+    "AST_equal": true,
+    "sha256": "4f9a8ac5f5f86ebd24fe6a0a413c6092e0ac3e483f51afc54814f43e49abde52"
+  },
+  "_evaluate_single": {
+    "AST_equal": true,
+    "sha256": "5370eda01c55b03c1e59c4c492e2f07c909e69fb214abf41acc04e1081503092"
+  },
+  "evaluate": {
+    "AST_equal": true,
+    "sha256": "d4f0e2a67d6a3f9f675612deb1a1c8547b67286b943fae6f8cf354778a7c1346"
+  },
+  "output_to_vecs": {
+    "AST_equal": true,
+    "sha256": "bab1d6f44d63ed5b739f74176af00225b097396c5c25efb5fd4302980a663faf"
+  }
+}

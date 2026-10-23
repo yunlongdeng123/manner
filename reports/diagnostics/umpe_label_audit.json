@@ -1,0 +1,72 @@
+{
+  "frames": 6019,
+  "all_gt_tokens_in_official_dataset_order": true,
+  "all_gt_arrays_equal_converter_annotations": true,
+  "arrays_checked": 54788,
+  "ground_truth_counts": {
+    "divider": 27332,
+    "ped_crossing": 6406,
+    "boundary": 21050
+  },
+  "prediction_scores": {
+    "divider": {
+      "count": 120778,
+      "above_0_3": 8968,
+      "quantiles": [
+        0.0008272206760011613,
+        0.004019746324047446,
+        0.010795189533382654,
+        0.04213007725775242,
+        0.994916558265686
+      ]
+    },
+    "ped_crossing": {
+      "count": 50225,
+      "above_0_3": 3781,
+      "quantiles": [
+        0.0008457505027763546,
+        0.0030307841952890158,
+        0.007071755826473236,
+        0.0285926703363657,
+        0.9946317672729492
+      ]
+    },
+    "boundary": {
+      "count": 129947,
+      "above_0_3": 21641,
+      "quantiles": [
+        0.0008467803127132356,
+        0.006534808548167348,
+        0.017661042511463165,
+        0.08697568252682686,
+        0.9964855909347534
+      ]
+    }
+  },
+  "checkpoint_details": {
+    "maptrv2_umpe": {
+      "epoch": 29,
+      "iter": 135981,
+      "alpha_parameters": {
+        "pts_bbox_head.transformer.fusion_module.safe_fuse.alpha": 0.6000913381576538
+      },
+      "training_history_not_this_evaluation": {
+        "last_ckpt": "/DATA_EDS2/zhenggt2407/UMPE_check/Maptrv2/outputs/umpe_retrain_2/epoch_28.pth",
+        "best_score": 0.6865310668945312,
+        "best_ckpt": "/DATA_EDS2/zhenggt2407/UMPE_check/Maptrv2/outputs/umpe_retrain_2/best_NuscMap_chamfer/mAP_epoch_26.pth"
+      }
+    },
+    "maptrv2_umpe_ft": {
+      "epoch": 44,
+      "iter": 206316,
+      "alpha_parameters": {
+        "pts_bbox_head.transformer.fusion_module.safe_fuse.alpha": 0.6004236936569214
+      },
+      "training_history_not_this_evaluation": {
+        "last_ckpt": "/DATA_EDS2/zhenggt2407/UMPE_check/Maptrv2/outputs/umpe_retrain_2/epoch_43.pth",
+        "best_score": 0.709131979280048,
+        "best_ckpt": "/DATA_EDS2/zhenggt2407/UMPE_check/Maptrv2/outputs/umpe_retrain_2/best_NuscMap_chamfer/mAP_epoch_42.pth"
+      }
+    }
+  }
+}

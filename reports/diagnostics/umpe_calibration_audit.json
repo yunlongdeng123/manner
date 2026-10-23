@@ -1,0 +1,105 @@
+{
+  "frames": 16,
+  "cameras": 96,
+  "max_matrix_error": 1.0129640182210409e-12,
+  "formula": "inverse(lidar_to_global) @ camera_ego_to_global @ camera_to_ego",
+  "intrinsics_timestamps_paths_and_keyframes_match": true,
+  "records": [
+    {
+      "token": "30e55a3ec6184d8cb1944b39ba19d622",
+      "map_location": "singapore-onenorth",
+      "camera_count": 6,
+      "max_matrix_error": 1.4904744105592727e-13
+    },
+    {
+      "token": "c75fae3bcdd54b3a8b3635fdcf8ba74b",
+      "map_location": "singapore-onenorth",
+      "camera_count": 6,
+      "max_matrix_error": 1.904587598744456e-13
+    },
+    {
+      "token": "28b65b60537d4f70be13fae042ecace9",
+      "map_location": "singapore-onenorth",
+      "camera_count": 6,
+      "max_matrix_error": 3.8652414602324825e-13
+    },
+    {
+      "token": "9124545509cb45e1b79168bead041f06",
+      "map_location": "boston-seaport",
+      "camera_count": 6,
+      "max_matrix_error": 1.8895995879120164e-13
+    },
+    {
+      "token": "b125762977ad472daebf8a989f653b49",
+      "map_location": "boston-seaport",
+      "camera_count": 6,
+      "max_matrix_error": 1.0129640182210409e-12
+    },
+    {
+      "token": "75bde66b01454744904d51c1fa92f246",
+      "map_location": "boston-seaport",
+      "camera_count": 6,
+      "max_matrix_error": 4.647393581080905e-13
+    },
+    {
+      "token": "e0286a70489f45a5b3469ee1b71b7667",
+      "map_location": "boston-seaport",
+      "camera_count": 6,
+      "max_matrix_error": 4.471423231677818e-13
+    },
+    {
+      "token": "54af38c26da6410991b41e952c4a6753",
+      "map_location": "boston-seaport",
+      "camera_count": 6,
+      "max_matrix_error": 2.90205359743112e-13
+    },
+    {
+      "token": "552970375d5149e48d5667698a692ed6",
+      "map_location": "boston-seaport",
+      "camera_count": 6,
+      "max_matrix_error": 4.205524817280093e-13
+    },
+    {
+      "token": "d82a8671e85c47989834e95c6e7b3852",
+      "map_location": "boston-seaport",
+      "camera_count": 6,
+      "max_matrix_error": 1.6631140908884845e-13
+    },
+    {
+      "token": "44183eea3bf14378a2e4f2929b18a564",
+      "map_location": "boston-seaport",
+      "camera_count": 6,
+      "max_matrix_error": 4.0829666037023316e-13
+    },
+    {
+      "token": "d95a0f0adf7945c5aaf2fbd3dc110dcc",
+      "map_location": "singapore-onenorth",
+      "camera_count": 6,
+      "max_matrix_error": 2.339239912885205e-13
+    },
+    {
+      "token": "ac8b4d49731d43289579f014cb7c97ef",
+      "map_location": "singapore-queenstown",
+      "camera_count": 6,
+      "max_matrix_error": 3.6859404417555197e-13
+    },
+    {
+      "token": "76e95a17645048dfb21258344c096d2a",
+      "map_location": "singapore-queenstown",
+      "camera_count": 6,
+      "max_matrix_error": 3.942401960443931e-13
+    },
+    {
+      "token": "fcb1422b6f6241939953d032f2cc2ce8",
+      "map_location": "singapore-hollandvillage",
+      "camera_count": 6,
+      "max_matrix_error": 9.379164112033322e-13
+    },
+    {
+      "token": "f0ee73d43c2748fbb584d1a062e2773a",
+      "map_location": "singapore-hollandvillage",
+      "camera_count": 6,
+      "max_matrix_error": 2.788880237858393e-13
+    }
+  ]
+}

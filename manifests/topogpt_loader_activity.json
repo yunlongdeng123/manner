@@ -1,8 +1,8 @@
 {
-  "time": "2026-10-24T00:36:23.600372+08:00",
+  "time": "2026-10-24T00:58:26.068294+08:00",
   "frames_total": 4806,
-  "observed_loader_position": 1718,
-  "observed_reads": 57,
+  "observed_loader_position": 2208,
+  "observed_reads": 151,
   "includes_prefetch": true,
   "prediction_completion_not_asserted": true
 }
