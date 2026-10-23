@@ -1,0 +1,8 @@
+{
+  "time": "2026-10-23T19:07:46.686168+00:00",
+  "issue": "Windows child interpreter did not inherit -X utf8; verified archive extracted but a UTF-8 JSON read used default GBK",
+  "fix": "Explicit UTF-8 JSON I/O and -X utf8 for child helper processes",
+  "previous_delivery_commit": "503fa76bde41df0d8ff74f2524f07d1a89668ba3",
+  "previous_attempt_preserved_locally": "delivery_before_utf8_fix",
+  "evaluation_repeated": false
+}

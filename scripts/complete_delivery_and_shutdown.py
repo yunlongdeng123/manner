@@ -43,7 +43,7 @@ event('final_metrics',metrics={k:v['metrics'] for k,v in summary['runs'].items()
 
 # The verified report/controller only creates these known final artifacts.
 paths=['README.md','manifests/final_status.json','manifests/final_status_no_gpu_snapshot.json','manifests/evaluation_inputs.json','manifests/delivery_ready.json','manifests/final_reporting_complete.json','reports','scripts/complete_delivery_and_shutdown.py']
-command=f'cd {ROOT} && git diff --check && git add '+ ' '.join(shlex.quote(x) for x in paths)+" && git commit -m 'Finalize complete validation results and verified delivery evidence' && git diff --exit-code && git diff --cached --exit-code"
+command=f'cd {ROOT} && git diff --check && git add '+ ' '.join(shlex.quote(x) for x in paths)+" && (git diff --cached --quiet || git commit -m 'Finalize complete validation results and verified delivery evidence') && git diff --exit-code && git diff --cached --exit-code"
 event('git_commit',output=remote(command).stdout)
 event('packaging')
 p=remote(f'cd {ROOT} && /root/miniconda3/bin/python scripts/package_gpu_results.py',timeout=900)
@@ -57,10 +57,10 @@ for name,entry in manifest['files'].items():
         continue  # Full hashes are checked below with the other delivery files.
     event('retrieving',file=name,bytes=entry['bytes'])
     if name.endswith('.tgz'):
-        subprocess.run([sys.executable,str(HERE/'parallel_ssh_fetch.py'),'--remote',REMOTE_DELIVERY+'/'+name,'--output',str(path),'--bytes',str(entry['bytes']),'--sha256',entry['sha256'],'--streams','4'],check=True)
+        subprocess.run([sys.executable,'-X','utf8',str(HERE/'parallel_ssh_fetch.py'),'--remote',REMOTE_DELIVERY+'/'+name,'--output',str(path),'--bytes',str(entry['bytes']),'--sha256',entry['sha256'],'--streams','4'],check=True)
     else:scp(f'{HOST}:{REMOTE_DELIVERY}/{name}',path)
 event('verifying_local_delivery')
-subprocess.run([sys.executable,str(HERE/'unpack_verify_gpu_results.py'),str(DEST)],check=True)
+subprocess.run([sys.executable,'-X','utf8',str(HERE/'unpack_verify_gpu_results.py'),str(DEST)],check=True)
 receipt=json.loads((DEST/'verification.json').read_text())
 assert receipt['commit']==manifest['commit']
 event('local_delivery_verified',commit=receipt['commit'])
