@@ -1,0 +1,13 @@
+{
+  "runs": {
+    "topogpt": {
+      "directory": "/root/autodl-tmp/manner-repro/results/topogpt/run_20261023T152334Z"
+    },
+    "umpe_finetuned": {
+      "directory": "/root/autodl-tmp/manner-repro/results/umpe/finetuned_20261023T154019Z"
+    }
+  },
+  "diagnostic_control": {
+    "directory": "/root/autodl-tmp/manner-repro/results/diagnostic/maptrv2_baseline_20261023T171236Z"
+  }
+}

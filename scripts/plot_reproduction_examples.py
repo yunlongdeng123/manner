@@ -8,7 +8,7 @@ from matplotlib.lines import Line2D
 R=pathlib.Path('/root/autodl-tmp/manner-repro')
 sys.path.insert(0,str(R/'repos/TopoGPT'))
 from MapPrior.datasets.map_dataset import get_ar_topo_pred
-p=argparse.ArgumentParser();p.add_argument('--smoke',action='store_true');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--smoke',action='store_true');p.add_argument('--summary',type=pathlib.Path,default=R/'reports/results.json');a=p.parse_args()
 out=R/'reports'/('smoke_figures' if a.smoke else 'figures');out.mkdir(parents=True,exist_ok=True)
 def read(path):
     with pathlib.Path(path).open('rb') as f:return pickle.load(f)
@@ -21,10 +21,12 @@ def style(ax,xlim,ylim,title):
 def line(ax,points,color):
     pts=np.asarray(points)
     if len(pts)>1:ax.plot(pts[:,0],pts[:,1],color=color,lw=1.15,alpha=.9)
-def graph(ax,obj,color):
+def graph(ax,obj,color,predicted=False):
     lanes=obj['lane_centerline']
     for lane in lanes:line(ax,lane['points'],color)
-    adj=np.asarray(obj['topology_lclc']) if 'topology_lclc' in obj else get_ar_topo_pred([x['points'] for x in lanes],dist_thre=.5,ret_hard=True)
+    # Saved predictions contain soft RBF adjacency. The official graph metric
+    # reconstructs hard edges at 0.5 m; use that same rule for prediction arrows.
+    adj=get_ar_topo_pred([x['points'] for x in lanes],dist_thre=.5,ret_hard=True) if predicted else np.asarray(obj['topology_lclc'])
     for i,j in zip(*np.where(adj>.5)):
         u=np.asarray(lanes[i]['points'])[-1,:2];v=np.asarray(lanes[j]['points'])[0,:2]
         ax.annotate('',xy=v,xytext=u,arrowprops=dict(arrowstyle='->',lw=.6,color='#64748b',alpha=.65,linestyle='dashed'))
@@ -35,7 +37,7 @@ if a.smoke:
     tg=R/'data/topogpt_smoke/openlane_subA/data_dict_subset_A_val.pkl'
     ug=R/'data/nuscenes/nuscenes_map_infos_temporal_val_smoke_diverse.pkl'
 else:
-    summary=json.loads((R/'reports/results.json').read_text())
+    summary=json.loads(a.summary.read_text())
     tp=pathlib.Path(summary['runs']['topogpt']['directory'])/'predictions.pkl'
     up=pathlib.Path(summary['runs']['umpe_finetuned']['directory'])/'predictions.pkl'
     tg=R/'data/topogpt/openlane_subA/data_dict_subset_A_val.pkl'
@@ -52,7 +54,7 @@ fig,axes=plt.subplots(3,4,figsize=(16,9),constrained_layout=True)
 for n,key in enumerate(keys):
     left,right=axes[n//2,(n%2)*2:(n%2)*2+2]
     ident=key[1][:8]+' / '+key[2][-7:]
-    graph(left,gt[key],'#16803c');graph(right,pred[key],'#2563eb')
+    graph(left,gt[key],'#16803c');graph(right,pred[key],'#2563eb',predicted=True)
     style(left,(-51.2,51.2),(-25.6,25.6),'GT '+ident)
     suffix=' (no EOS)' if key in no_eos else ''
     style(right,(-51.2,51.2),(-25.6,25.6),'TopoGPT'+suffix)

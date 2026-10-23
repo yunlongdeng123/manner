@@ -7,6 +7,10 @@ def sha(p):
         for block in iter(lambda:f.read(8*1024*1024),b''):h.update(block)
     return h.hexdigest()
 summary=json.loads((R/'reports/results.json').read_text())
+visual=json.loads((R/'manifests/figure_visual_review.json').read_text())
+assert visual['layout_passed']
+assert sha(R/'scripts/plot_reproduction_examples.py')==visual['plot_script_sha256']
+for name,digest in visual['images'].items():assert sha(R/'reports/figures'/name)==digest,name
 checks={}
 for name,row in list(summary['runs'].items())+[('maptrv2_control',summary['diagnostic_control'])]:
     p=pathlib.Path(row['directory'])/'predictions.pkl';c=row['coverage']

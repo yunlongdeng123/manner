@@ -1,0 +1,16 @@
+{
+  "reviewed_at": "2026-10-23T18:25:21.033948+00:00",
+  "review_method": "Full PNGs transferred locally and visually inspected",
+  "layout_passed": true,
+  "checks": [
+    "All six TopoGPT GT/prediction pairs visible without overlapping titles or axes",
+    "All six UMPE GT/MapTRv2/UMPE triplets and class legend visible",
+    "Fixed frame selection and score display threshold stated",
+    "Prediction arrows follow the official hard endpoint-distance rule"
+  ],
+  "images": {
+    "topogpt_examples.png": "8b5789bf8150e4f5fe84e93c0d1008ec1b4a6cb4d9a4a7974b77eaa8631bb7c4",
+    "umpe_examples.png": "f3c795fc489bd9482ad3e0be97f898d9aaedf041001a164ef1a150d58eb56940"
+  },
+  "plot_script_sha256": "2f8139d88e0d0e45e8334b63f9ce663b0ef5116ca9b12c7120043007518300c8"
+}

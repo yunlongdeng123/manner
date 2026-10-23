@@ -28,6 +28,8 @@ for label,key,ref in [('人行横道','ped_crossing_AP',66.6),('分隔线','divi
     umrows.append((label,items['umpe_base']['metrics']['NuscMap_chamfer/'+key]*100,items['umpe_finetuned']['metrics']['NuscMap_chamfer/'+key]*100,ref))
 smokes={k:read(R/'manifests'/(k+'_gpu_smoke_passed.json')) for k in ['topogpt','umpe']}
 summary=dict(completed_at=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).isoformat(),scope='Published checkpoint full validation, plus separately budgeted real-GPU engineering smokes; not from-scratch training reproduction',runs=items,diagnostic_control=diagnostic,smokes=smokes,topogpt_comparison=toprows,umpe_comparison=umrows,git_commit_before_report=subprocess.check_output(['git','-C',str(R),'rev-parse','HEAD'],text=True).strip())
+metric_log=(R/'logs/topogpt_full_eval_20261023.log').read_text(errors='replace')
+summary['topogpt_metric_log_warnings']=dict(apls_error_messages=metric_log.count('Error calculating APLS metric:'),mean_empty_slice_messages=metric_log.count('Mean of empty slice'),note='Log message counts, not counts of affected frames; official metric implementation unchanged')
 report=R/'reports';report.mkdir(exist_ok=True)
 (report/'results.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2))
 md=['# TopoGPT 与 UMPE：3090 复现结果','',f"完成时间：{summary['completed_at']}。主机 `manner-3090-1023`；工作目录 `/root/autodl-tmp/manner-repro`。",'',
@@ -41,6 +43,9 @@ md=['# TopoGPT 与 UMPE：3090 复现结果','',f"完成时间：{summary['compl
 md += [f'| {n} | {v:.2f} | {ref:.1f} | {v-ref:+.2f} |' for n,v,ref in toprows]
 tc=items['topogpt']['coverage']
 md += ['',f"诊断：{len(tc.get('no_eos_frames',[]))} 帧在默认生成上限内未输出 EOS；{len(tc.get('empty_lane_frames',[]))} 帧最终中心线为空。保留作者默认生成上限和原始预测，不因这些情况筛除验证帧。对应帧键见 `predictions.coverage.json`。"]
+metric_warnings=summary['topogpt_metric_log_warnings']
+if metric_warnings['apls_error_messages'] or metric_warnings['mean_empty_slice_messages']:
+    md += ['',f"官方评分日志中记录 APLS 异常消息 {metric_warnings['apls_error_messages']} 条、空集合均值警告 {metric_warnings['mean_empty_slice_messages']} 条。这里统计的是日志消息，不能当作受影响帧数；图指标保留作者的异常处理及 `numpy.nanmean` 聚合方式，未修改评分或删除输入帧。完整预测覆盖与个别子指标是否有效是不同检查，原始日志随包保留。"]
 md += ['', '## UMPE：nuScenes MapTRv2 + 四类先验','',
 '两份 checkpoint 均完成官方 150 个验证场景、6,019 帧，采用原测试代码的单 rank、无打乱顺序。Chamfer AP 取 0.5 / 1.0 / 1.5 m 阈值平均。参考来自 [论文 MapTRv2 主表](https://arxiv.org/html/2605.02762v1)。','',
 '| 指标 | 基础权重 | 微调权重 | 论文参考 |','|---|---:|---:|---:|']
@@ -90,6 +95,7 @@ md += ['', '只重算 UMPE 指标，无需 GPU 推理：','', '```bash','CUDA_VI
 md += ['', '后续需要独立准备/预算的项目：全量重新训练、TopoGPT 3.3M 地图预训练、OpenLane subset B、UMPE 的 AV2/MapQR/VAD 与先验消融。上述项目未作为本次已完成结果。','']
 md += ['## 定性核对','',
 'TopoGPT 固定随机种子选场景、每场景取首帧；若存在未生成 EOS 的帧，最后一例展示其中一帧。UMPE 在完整验证序列上等间隔取 6 帧，仅为显示清晰采用 0.3 分数阈值；正式指标保留全部预测。精确帧键及选择规则在 `figures/selection.json`，这些例子不替代总体统计。','',
+'在本次固定样例中，TopoGPT 的 10033、10084 场景可见额外路口分支，说明总体指标接近论文并不等于局部拓扑可靠。UMPE 的首个样例可见分隔线遗漏，对照 MapTRv2 保留了更多分隔线；这些是对应帧的直观观察，不能据此推断所有场景或确定精度差距的根因。','',
 '![TopoGPT 真值与预测](figures/topogpt_examples.png)','',
 '![相同样本的真值、MapTRv2 对照与 UMPE 微调预测](figures/umpe_examples.png)','']
 (report/'reproduction_report.md').write_text('\n'.join(md),encoding='utf-8')
