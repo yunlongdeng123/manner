@@ -1,0 +1,1488 @@
+{
+  "checkpoints": {
+    "maptrv2_umpe.pth": {
+      "strict": true,
+      "epoch": 29,
+      "iter": 135981
+    },
+    "maptrv2_umpe_ft.pth": {
+      "strict": true,
+      "epoch": 44,
+      "iter": 206316
+    }
+  },
+  "device": "cpu",
+  "cuda_numerics": "separate GPU smoke required",
+  "frames": 6019,
+  "sd_prior_keys": 34149,
+  "hd_prior_keys": 34149,
+  "first_pipeline": {
+    "img_metas": [
+      {
+        "filename": [
+          "str",
+          "str",
+          "str",
+          "str",
+          "str",
+          "str"
+        ],
+        "ori_shape": [
+          [
+            "int",
+            "int",
+            "int"
+          ],
+          [
+            "int",
+            "int",
+            "int"
+          ],
+          [
+            "int",
+            "int",
+            "int"
+          ],
+          [
+            "int",
+            "int",
+            "int"
+          ],
+          [
+            "int",
+            "int",
+            "int"
+          ],
+          [
+            "int",
+            "int",
+            "int"
+          ]
+        ],
+        "img_shape": [
+          [
+            "int",
+            "int",
+            "int"
+          ],
+          [
+            "int",
+            "int",
+            "int"
+          ],
+          [
+            "int",
+            "int",
+            "int"
+          ],
+          [
+            "int",
+            "int",
+            "int"
+          ],
+          [
+            "int",
+            "int",
+            "int"
+          ],
+          [
+            "int",
+            "int",
+            "int"
+          ]
+        ],
+        "lidar2img": [
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          }
+        ],
+        "pad_shape": [
+          [
+            "int",
+            "int",
+            "int"
+          ],
+          [
+            "int",
+            "int",
+            "int"
+          ],
+          [
+            "int",
+            "int",
+            "int"
+          ],
+          [
+            "int",
+            "int",
+            "int"
+          ],
+          [
+            "int",
+            "int",
+            "int"
+          ],
+          [
+            "int",
+            "int",
+            "int"
+          ]
+        ],
+        "scale_factor": "float",
+        "flip": "bool",
+        "pcd_horizontal_flip": "bool",
+        "pcd_vertical_flip": "bool",
+        "box_mode_3d": "Box3DMode",
+        "box_type_3d": "type",
+        "img_norm_cfg": {
+          "mean": {
+            "shape": [
+              3
+            ],
+            "dtype": "float32"
+          },
+          "std": {
+            "shape": [
+              3
+            ],
+            "dtype": "float32"
+          },
+          "to_rgb": "bool"
+        },
+        "sample_idx": "str",
+        "prev_idx": "str",
+        "next_idx": "str",
+        "pcd_scale_factor": "float",
+        "pts_filename": "str",
+        "scene_token": "str",
+        "camera_intrinsics": [
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float32"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float32"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float32"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float32"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float32"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float32"
+          }
+        ],
+        "can_bus": {
+          "shape": [
+            18
+          ],
+          "dtype": "float64"
+        },
+        "lidar2global": {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "lidar2cam": [
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          }
+        ],
+        "camera2ego": [
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float32"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float32"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float32"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float32"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float32"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float32"
+          }
+        ],
+        "cam_intrinsic": [
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          }
+        ],
+        "img_aug_matrix": [
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          },
+          {
+            "shape": [
+              4,
+              4
+            ],
+            "dtype": "float64"
+          }
+        ],
+        "lidar2ego": {
+          "shape": [
+            4,
+            4
+          ],
+          "dtype": "float32"
+        },
+        "timestamp": "int"
+      }
+    ],
+    "img": [
+      {
+        "shape": [
+          6,
+          3,
+          480,
+          800
+        ],
+        "dtype": "torch.float32"
+      }
+    ],
+    "satellite_img": [
+      {
+        "shape": [
+          200,
+          100,
+          3
+        ],
+        "dtype": "float32"
+      }
+    ],
+    "SDRaster_img": [
+      {
+        "shape": [
+          200,
+          100,
+          3
+        ],
+        "dtype": "float32"
+      }
+    ],
+    "sdmap": [
+      {
+        "highway": [],
+        "primary": [],
+        "secondary": [],
+        "tertiary": [
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          }
+        ],
+        "residential": [],
+        "service": [
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          }
+        ],
+        "pedestrian": [
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          }
+        ],
+        "other": []
+      }
+    ],
+    "hdmap": [
+      {
+        "boundary": [
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          },
+          {
+            "shape": [
+              11,
+              2
+            ],
+            "dtype": "torch.float32"
+          }
+        ]
+      }
+    ]
+  },
+  "seconds": 185.75478943437338
+}

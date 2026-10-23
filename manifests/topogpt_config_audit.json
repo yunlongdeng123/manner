@@ -1,0 +1,129 @@
+{
+  "optimizer_cfg": {
+    "repo": {
+      "freeze_gpt": true,
+      "freeze_projector": true,
+      "freeze_encoder": false,
+      "gpt_net": {
+        "lr": 5e-05,
+        "weight_decay": 0.05,
+        "betas": [
+          0.9,
+          0.95
+        ]
+      },
+      "encoder_net": {
+        "lr": 0.0005,
+        "weight_decay": 0.05,
+        "betas": [
+          0.9,
+          0.95
+        ]
+      },
+      "flow_net": {
+        "lr": 0.0005,
+        "weight_decay": 0.05,
+        "betas": [
+          0.9,
+          0.95
+        ]
+      }
+    },
+    "checkpoint": {
+      "freeze_gpt": true,
+      "freeze_projector": true,
+      "freeze_encoder": false,
+      "gpt_net": {
+        "lr": 5e-05,
+        "weight_decay": 0.05,
+        "betas": [
+          0.9,
+          0.95
+        ]
+      },
+      "encoder_net": {
+        "lr": 0.0005,
+        "weight_decay": 0.05,
+        "betas": [
+          0.9,
+          0.95
+        ]
+      },
+      "flow_net": {
+        "lr": 0.0005,
+        "weight_decay": 0.05,
+        "betas": [
+          0.9,
+          0.95
+        ]
+      }
+    },
+    "equal": true
+  },
+  "scheduler_cfg": {
+    "repo": {
+      "warmup_steps": 100,
+      "eta_min": 1e-06
+    },
+    "checkpoint": {
+      "warmup_steps": 100,
+      "eta_min": 1e-06
+    },
+    "equal": true
+  },
+  "loss_cfg": {
+    "repo": {
+      "pos_weight": 1,
+      "dir_weight": 1,
+      "bev_feat_loss_bg_weight": 0.1,
+      "flow_loss_weight": 5.0,
+      "recon_flow_loss_weight": 5.0
+    },
+    "checkpoint": {
+      "pos_weight": 1,
+      "dir_weight": 1,
+      "bev_feat_loss_bg_weight": 0.1,
+      "flow_loss_weight": 5.0,
+      "recon_flow_loss_weight": 5.0
+    },
+    "equal": true
+  },
+  "eval_cfg": {
+    "repo": {
+      "eval_seq_decode": false
+    },
+    "checkpoint": {
+      "eval_seq_decode": false
+    },
+    "equal": true
+  },
+  "sample_cfg": {
+    "repo": {
+      "cfg_scale": 1.0,
+      "temperature": 1.0,
+      "top_k": 0,
+      "top_p": 1.0,
+      "sample_logits": false,
+      "spatial_bin_num": 64,
+      "save_pred_path": null,
+      "prefix_bev_token": true,
+      "num_control_points": 4,
+      "max_token_num": 251,
+      "use_force_sample": true
+    },
+    "checkpoint": {
+      "cfg_scale": 1.0,
+      "temperature": 1.0,
+      "top_k": 0,
+      "top_p": 1.0,
+      "sample_logits": false,
+      "spatial_bin_num": 64,
+      "save_pred_path": null,
+      "prefix_bev_token": true,
+      "num_control_points": 4,
+      "max_token_num": 251,
+      "use_force_sample": true
+    },
+    "equal": true
+  }
+}

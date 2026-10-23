@@ -1,0 +1,57 @@
+{
+  "hd_val": {
+    "frames": 6019,
+    "file": "/root/autodl-tmp/manner-repro/data/umpe_priors/selected/hd_val.pkl",
+    "bytes": 8066541,
+    "verified": {
+      "sha256": "476aa89acfa5201ec7d0305f63870c9bae734b42754776346791c9409f7395d0",
+      "arrays": 21050
+    }
+  },
+  "hd_train_smoke": {
+    "frames": 40,
+    "file": "/root/autodl-tmp/manner-repro/data/umpe_priors/selected/hd_train_smoke.pkl",
+    "bytes": 36827,
+    "verified": {
+      "sha256": "bd8e5b717e543dfe1277d1c76ec383d9f5dc3a1a354df356132d638819b185bb",
+      "arrays": 94
+    }
+  },
+  "hd_val_smoke": {
+    "frames": 8,
+    "file": "/root/autodl-tmp/manner-repro/data/umpe_priors/selected/hd_val_smoke.pkl",
+    "bytes": 7899,
+    "verified": {
+      "sha256": "dd5e943af8fea0ad4b691ac04cc59b9f1268141a632aba040ca0d4dc3651bb98",
+      "arrays": 20
+    }
+  },
+  "sd_val": {
+    "frames": 6019,
+    "file": "/root/autodl-tmp/manner-repro/data/umpe_priors/selected/sd_val.pkl",
+    "bytes": 350825618,
+    "verified": {
+      "sha256": "1039fc90d4f86a88c317d005bbb9c100b7f14a244873a55a7c3eee3c647e1074",
+      "arrays": 945554
+    }
+  },
+  "sd_train_smoke": {
+    "frames": 40,
+    "file": "/root/autodl-tmp/manner-repro/data/umpe_priors/selected/sd_train_smoke.pkl",
+    "bytes": 1874375,
+    "verified": {
+      "sha256": "8bf557704e577e7188218546636c1d7c81ba55b9c85be5fc44c8e13281fd113f",
+      "arrays": 5076
+    }
+  },
+  "sd_val_smoke": {
+    "frames": 8,
+    "file": "/root/autodl-tmp/manner-repro/data/umpe_priors/selected/sd_val_smoke.pkl",
+    "bytes": 298831,
+    "verified": {
+      "sha256": "f1dc11a93374bcfb4b052414f38c152bd898333089fe3101c161b9cef7406f94",
+      "arrays": 804
+    }
+  },
+  "seconds": 325.5492757707834
+}

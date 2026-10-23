@@ -14,7 +14,11 @@ CHECKPOINT="${UMPE_CHECKPOINT:-$ROOT/weights/umpe/maptrv2_umpe_ft.pth}"
 NAME="$(basename "$CHECKPOINT" .pth)"
 OUT="${UMPE_OUT_DIR:-$ROOT/results/umpe/${NAME}_$(date -u +%Y%m%dT%H%M%SZ)}"
 mkdir -p "$OUT"
-bash tools/dist_test_map.sh "$ROOT/configs/umpe_reproduce.py" \
+CONFIG="$ROOT/configs/umpe_reproduce.py"
+if test -f "$ROOT/manifests/umpe_selected_priors_verified.json"; then
+  CONFIG="$ROOT/configs/umpe_reproduce_cached.py"
+fi
+bash tools/dist_test_map.sh "$CONFIG" \
   "$CHECKPOINT" 1 \
-  --out "$OUT/predictions.pkl" "$@"
+  --out "$OUT/predictions.pkl" --cfg-options data.workers_per_gpu=0 "$@"
 python "$ROOT/scripts/verify_prediction_coverage.py" umpe "$OUT/predictions.pkl"

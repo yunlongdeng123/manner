@@ -1,0 +1,18 @@
+{
+  "gkt": {
+    "forward_max_error": 9.5367431640625e-07,
+    "backward_max_errors": [
+      4.76837158203125e-07,
+      4.76837158203125e-07
+    ]
+  },
+  "mmcv_deformable_attention": {
+    "forward_max_error": 3.5762786865234375e-07,
+    "backward_max_errors": [
+      2.384185791015625e-07,
+      7.152557373046875e-07
+    ]
+  },
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "torch": "1.9.1+cu111"
+}

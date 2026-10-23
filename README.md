@@ -1,7 +1,7 @@
 # TopoGPT 与 UMPE 复现现场
 
 主机：`manner-3090-1023`。根目录：`/root/autodl-tmp/manner-repro`。
-当前目标是复现官方权重的验证结果，再以真实 GPU smoke 验证训练、保存、恢复和评价入口。完整重新预训练、全量微调尚未启动，也未承诺其计算预算。
+本次复现官方权重的验证结果，已先以真实 GPU smoke 验证训练、保存、恢复和评价入口。完整重新预训练、全量微调尚未启动，也未承诺其计算预算。2026-10-23 的 GPU 阶段已完成两套 smoke，目前正在运行完整验证；最终分数以结果文件及覆盖核验为准。
 
 ```mermaid
 flowchart LR
@@ -33,7 +33,7 @@ flowchart LR
 - `scripts/install_umpe_sdk.sh`：补齐 AV2 SDK、PyArrow 和 Ninja；项目的注册入口会导入 AV2 类，因此 nuScenes 路径也需要这些运行依赖。
 - `scripts/build_umpe_extensions.sh`：带 GPU 后编译、导入 CUDA 扩展。
 - `scripts/topogpt_eval.sh`、`scripts/umpe_eval.sh`：完整评价入口；真实 GPU smoke 通过前拒绝长跑。
-- `scripts/topogpt_smoke.sh`、`scripts/umpe_smoke.sh`：已准备真实 GPU 短程入口，训练约 8 分钟后保存，再用新进程恢复，并运行少量真实验证帧与官方指标。当前无卡，尚未执行。
+- `scripts/topogpt_smoke.sh`、`scripts/umpe_smoke.sh`：真实 GPU 短程入口，训练约 8 分钟后保存，再用新进程恢复，并运行少量真实验证帧与官方指标。两者均已通过，详见 `manifests/*gpu_smoke_passed.json`。
 - `scripts/prepare_openlane.py`：逐帧转换官方 JSON，类型、点采样与 devkit collect(point_interval=1) 对齐；完整验证集和 smoke 数据分目录。
 - `scripts/prepare_umpe_infos.py`：沿用官方地图标注、坐标变换和 CAN bus 逻辑；用 SQLite 查询所选帧的元数据，按场景保存中间结果。缓存重复几何提取，已与未缓存输出逐数组核对。
 - `scripts/inspect_prior_pickles.py`：低内存检查公开先验的顶层帧键；较小 HD 文件同时通过实际反序列化比对。
@@ -63,12 +63,12 @@ flowchart LR
 
 ## 工程修正与数据细节
 
-- `patches/umpe_engineering.patch` 保存对 UMPE 的全部源码差异：补齐官方测试入口中被 `assert False` 禁用的 `--out` 保存分支，同时保存指标 JSON；调整旧 mmdetection3d 的依赖声明，使其与安装并验证导入的 NumPy / Numba / NetworkX 版本一致。CUDA 算子执行仍待带卡验证。
+- `patches/umpe_engineering.patch` 保存对 UMPE 的全部源码差异：补齐官方测试入口中被 `assert False` 禁用的 `--out` 保存分支，同时保存指标 JSON；调整旧依赖声明和 Numba 异常模块导入。GKT、MMCV 可变形注意力在 3090 上的前向与反向已对照参考实现，最大绝对误差小于 1e-6。TopoGPT 官方源码未改动。
 - UMPE 官方栅格 SD 压缩包缺少本次验证集中的 16 帧。保留官方 `LoadSDRasterFromFile` 的白图回退，不伪造缺失文件；帧号在 `manifests/auxiliary_assets.json`。卫星图覆盖全部所选帧。
 - OpenLane 官方 sample 只有训练数据。训练 smoke 使用该 sample；验证 smoke 从正式验证集取 8 帧，独立保存，完整评价继续使用全量验证集。
 - nuScenes 另备训练场景 `scene-0001` 的 40 帧作 smoke。全量训练集、TopoGPT 的 3.3M 预训练数据及 UMPE 的 AV2 / VAD 评测数据未准备；本次尚未启动从头预训练、全量微调或跨任务结果复现。
 - CAN bus 文件物理存储在 `/root/manner-repro-download-cache/can_bus`，原 `data/can_bus` 中保留逐文件链接。迁移经 CRC 校验并原子替换，原始公共盘压缩包未改动。
-- 无卡模式下的导入、格式核对、下载与 CPU 准备是工程开销；真实 GPU smoke / 必要重放另计，不占正式训练步数预算。恢复审计校验模型、优化器、调度、步数、RNG，UMPE 额外校验 FP16 scaler；当前没有任何 GPU 通过标记。
+- 无卡模式下的导入、格式核对、下载与 CPU 准备是工程开销；真实 GPU smoke / 必要重放另计，不占正式训练步数预算。恢复审计校验模型、优化器、调度、步数、RNG，UMPE 额外校验 FP16 scaler 和恢复后首步实际学习率。通过标记保存于 `manifests/`。
 - 完整评价按模型和时间建立独立输出目录；评价结束检查预测覆盖完整验证集，保留每次运行的结果。
 
 ## 带卡后的执行顺序
@@ -79,6 +79,25 @@ flowchart LR
 4. UMPE 扩展与完整数据就绪后运行 `bash scripts/umpe_smoke.sh`，通过后运行 `bash scripts/umpe_eval.sh`。用 `UMPE_CHECKPOINT` 可显式选择基础权重。
 5. 核对全量帧覆盖、指标口径、结果与环境；取回日志、指标、补丁和部署记录。按长期规则完成后续依赖工作后再判断关机；无卡模式不关机。
 
-## 当前限制
+## GPU 验证记录（2026-10-23）
 
-主机已由用户确认处于无卡模式，资源限制为 0.5 核 CPU、2 GiB 内存。真实 GPU 验证尚未进行。完成状态以实测记录为准，不能把本文件或入口脚本的存在视为复现成功。
+实测硬件为 RTX 3090 24 GiB，容器配额为 14 核 CPU、90 GiB 内存。CUDA toolkit 11.8；两套环境保持各自 PyTorch CUDA 版本。完整验证期间部分任务共享 GPU，因此此次耗时不作为论文 FPS 复现结果。
+
+| 检查 | TopoGPT | UMPE |
+|---|---|---|
+| 训练 smoke | 440 步，483.14 秒 | 320 步，503.06 秒 |
+| 保存后独立进程恢复 | 440 → 443 步 | 320 → 360 步，epoch 8 → 9 |
+| 状态一致性 | 模型、优化器、调度器、步数、RNG | 模型、优化器、epoch/iter、FP16 scaler、RNG、下一步 LR |
+| 峰值分配显存 | 约 10.48 GiB | 约 6.33 GiB |
+| 数值检查 | loss 和非零梯度均有限 | loss 和非零梯度均有限 |
+| 小规模评价 | 8 帧，PR/topology/graph 全部落盘 | 8 帧，3 个 Chamfer 阈值；其中 4 帧为真实栅格先验缺失 |
+
+恢复核验不声称跨进程数据顺序或训练轨迹逐位一致。smoke 产生的更新只用于工程验收，完整评测始终使用未修改的作者发布权重。
+
+UMPE 恢复入口先后发现并修复两个审计兼容问题：MMCV JSON logger 无法序列化运行元数据中的 RNG 张量；PyTorch 1.9 不支持审计脚本中的跨字节宽度 dtype view。RNG 原始张量一直保留在 checkpoint 内；日志仅移除运行时副本。修复后从原始第 320 步 checkpoint 恢复，未重跑已通过的训练段。失败目录、日志和源 checkpoint 均保留。
+
+官方先验完整加载、两份 UMPE 权重严格加载均通过。`scripts/cache_umpe_priors.py` 生成按帧键筛选的无损缓存；验证集包含 21,050 个 HD 数组和 945,554 个 SD 数组，保存前后逐张量哈希完全相同。缓存只减少加载范围，不改变任何被使用的值。完整评测使用 `configs/umpe_reproduce_cached.py`；原始先验文件保留。
+
+首次 UMPE 完整评测在创建多进程数据加载 worker 时因旧数据集对象含不可序列化的 `dict_keys` 退出，尚未出帧。完整评测已改用与 smoke 一致的 `workers_per_gpu=0`，同一数据、模型和评测代码正常运行。失败日志独立保留，重试输出使用新目录。
+
+后续入口：`scripts/umpe_eval_pair.sh` 顺序评测官方 ft/base 权重；`scripts/runtime_status.py` 查看当前日志及结果；`logs/gpu_telemetry_20261023.jsonl` 保存正式阶段资源采样。全量预测和指标仍需完成后核对，不将 smoke 分数当作完整验证结果。

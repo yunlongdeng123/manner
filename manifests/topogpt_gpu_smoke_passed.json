@@ -1,0 +1,40 @@
+{
+  "train": {
+    "phase": "train",
+    "start_step": 0,
+    "end_step": 440,
+    "backward_steps": 440,
+    "seconds": 483.136216558516,
+    "loss_first": 1.356031894683838,
+    "loss_last": 0.8918932676315308,
+    "all_losses_finite": true,
+    "peak_allocated_bytes": 11256036352,
+    "peak_reserved_bytes": 12912164864,
+    "device": "NVIDIA GeForce RTX 3090"
+  },
+  "resume": {
+    "phase": "resumed",
+    "start_step": 440,
+    "end_step": 443,
+    "backward_steps": 3,
+    "seconds": 5.86200388520956,
+    "loss_first": 1.4316688776016235,
+    "loss_last": 2.0606911182403564,
+    "all_losses_finite": true,
+    "peak_allocated_bytes": 11253698560,
+    "peak_reserved_bytes": 12916359168,
+    "device": "NVIDIA GeForce RTX 3090"
+  },
+  "restored": {
+    "global_step": 440,
+    "model": true,
+    "optimizer": true,
+    "scheduler": true,
+    "rng": true,
+    "scope": "Saved state restored; bitwise data-order replay not asserted"
+  },
+  "evaluation_frames": 8,
+  "metrics_path": "/root/manner-repro-smoke/topogpt_20261023T151050Z/metrics.json",
+  "directory": "/root/manner-repro-smoke/topogpt_20261023T151050Z",
+  "formal_evaluation_completed": false
+}

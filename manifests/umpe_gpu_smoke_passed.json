@@ -1,0 +1,63 @@
+{
+  "train": {
+    "phase": "train",
+    "start_iter": 0,
+    "end_iter": 320,
+    "start_epoch": 0,
+    "end_epoch": 8,
+    "backward_steps": 320,
+    "seconds": 503.06367675215006,
+    "all_losses_finite": true,
+    "loss_first": 23.932527542114258,
+    "loss_last": 11.11272144317627,
+    "peak_allocated_bytes": 6801055232,
+    "peak_reserved_bytes": 7587495936,
+    "device": "NVIDIA GeForce RTX 3090"
+  },
+  "resumed": {
+    "phase": "resumed",
+    "start_iter": 320,
+    "end_iter": 360,
+    "start_epoch": 8,
+    "end_epoch": 9,
+    "backward_steps": 40,
+    "seconds": 60.87853632122278,
+    "all_losses_finite": true,
+    "loss_first": 10.605215072631836,
+    "loss_last": 27.59662437438965,
+    "peak_allocated_bytes": 6790206464,
+    "peak_reserved_bytes": 7797211136,
+    "device": "NVIDIA GeForce RTX 3090"
+  },
+  "restore": {
+    "iter": 320,
+    "epoch": 8,
+    "model": true,
+    "optimizer": true,
+    "lr_and_schedule": "First resumed step matches next-step cosine/warmup LR saved by previous process",
+    "fp16_scaler": true,
+    "rng": true,
+    "scope": "Epoch-boundary state restore; bitwise cross-process trajectory not asserted",
+    "next_lr": true,
+    "next_lr_min": 0.0,
+    "next_lr_max": 0.000221131833810824
+  },
+  "evaluation_frames": 8,
+  "directory": "/root/autodl-tmp/manner-repro/results/smoke/umpe_recovery_20261023T153416Z",
+  "metrics": {
+    "NuscMap_chamfer/divider_AP": 1.0,
+    "NuscMap_chamfer/ped_crossing_AP": 0.0,
+    "NuscMap_chamfer/boundary_AP": 0.7412211696306864,
+    "NuscMap_chamfer/mAP": 0.5804070565435621,
+    "NuscMap_chamfer/divider_AP_thr_0.5": 1.0,
+    "NuscMap_chamfer/divider_AP_thr_1.0": 1.0,
+    "NuscMap_chamfer/divider_AP_thr_1.5": 1.0,
+    "NuscMap_chamfer/ped_crossing_AP_thr_0.5": 0.0,
+    "NuscMap_chamfer/ped_crossing_AP_thr_1.0": 0.0,
+    "NuscMap_chamfer/ped_crossing_AP_thr_1.5": 0.0,
+    "NuscMap_chamfer/boundary_AP_thr_0.5": 0.39611971378326416,
+    "NuscMap_chamfer/boundary_AP_thr_1.0": 0.8275438547134399,
+    "NuscMap_chamfer/boundary_AP_thr_1.5": 0.9999999403953552
+  },
+  "formal_evaluation_completed": false
+}

@@ -1,3 +1,16 @@
+diff --git a/Maptrv2/mmdetection3d/mmdet3d/datasets/pipelines/data_augment_utils.py b/Maptrv2/mmdetection3d/mmdet3d/datasets/pipelines/data_augment_utils.py
+index 23b6aad..554d90c 100644
+--- a/Maptrv2/mmdetection3d/mmdet3d/datasets/pipelines/data_augment_utils.py
++++ b/Maptrv2/mmdetection3d/mmdet3d/datasets/pipelines/data_augment_utils.py
+@@ -2,7 +2,7 @@
+ import numba
+ import numpy as np
+ import warnings
+-from numba.errors import NumbaPerformanceWarning
++from numba.core.errors import NumbaPerformanceWarning
+ 
+ from mmdet3d.core.bbox import box_np_ops
+ 
 diff --git a/Maptrv2/mmdetection3d/requirements/runtime.txt b/Maptrv2/mmdetection3d/requirements/runtime.txt
 index f0e7ae4..d5e833b 100644
 --- a/Maptrv2/mmdetection3d/requirements/runtime.txt
