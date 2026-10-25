@@ -25,6 +25,22 @@ flowchart LR
 - OpenLane-V2：官方 devkit v1.1.0，commit `4bff01854622e004a9a6513240ce6539351b636d`。TopoGPT 使用自身提供的评测代码，不能把其指标直接当作 OpenLane OLS。
 - nuScenes：优先读取 `/root/autodl-pub/nuScenes`；完整验证集 150 个场景、6,019 帧；另选 `scene-0001` 作为训练 smoke 数据，绝不混入正式评价。
 
+## 从 GitHub 恢复代码
+
+本分支保存复现脚本、配置、上游源码补丁、报告和验证清单。`repos/` 中的官方源码按固定 commit 恢复；数据、权重、环境、大型运行产物和源码压缩包保留于远端，不随 Git 上传。
+
+在新的 AutoDL 环境中，使用以下路径以兼容现有脚本中的绝对路径：
+
+```bash
+git clone --branch codex/autodl-manner-repro-20261025 \
+  https://github.com/yunlongdeng123/manner.git /root/autodl-tmp/manner-repro
+cd /root/autodl-tmp/manner-repro
+python3 scripts/restore_sources.py
+python3 scripts/restore_sources.py --check
+```
+
+恢复入口从 `manifests/source_archives.json` 读取固定版本和补丁哈希，下载三个官方仓库并应用 `source_artifacts/*_local.patch`。重复运行会核验已部署源码；遇到版本不符、暂存区改动或未知源码差异会停止，保留现场。已有复现环境可以只运行 `--check`，该模式不修改文件，也不下载源码。恢复源码后，仍需按下文准备对应依赖、数据与权重；该入口不启动实验。
+
 ## 环境与入口
 
 - `topogpt`：Python 3.10，PyTorch 2.1.0+cu118，torchvision 0.16.0+cu118。
